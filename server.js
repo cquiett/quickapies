@@ -18,9 +18,11 @@ const app = express();
 // Configurations
 // =========================
 
-const port = 3005;
+const port = process.env.PORT || 3005;
 
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
+const MONGODB_URI = process.env.MONGODB_URI
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 mongoose.connection.once("open", () => {
   console.log("Connected to Mongoose.");
 });
@@ -29,8 +31,8 @@ mongoose.connection.once("open", () => {
 // Fix Deprecation Warnings
 // ==========================
 
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
+mongoose.set("useFindAndModify", false);
+mongoose.set("useCreateIndex", true);
 
 // ==========================
 // Middleware
@@ -44,7 +46,7 @@ app.use(session({
     saveUninitialized: false
   }));
 
-  // ==========================
+// ==========================
 // Listener
 // ==========================
 
