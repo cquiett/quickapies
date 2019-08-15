@@ -1,8 +1,5 @@
 {
   "name": "quickapies",
-  "engines": {
-    "node": "12.4.0"
-  }
   "version": "1.0.0",
   "description": "Search, create and sort through a collection of quick recipes!",
   "main": "server.js",
