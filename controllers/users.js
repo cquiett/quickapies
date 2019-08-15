@@ -13,7 +13,7 @@ const User = require("../models/users.js");
 // =========================
 
 router.post("/", (req, res) => {
-  req.body.passwors = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+  req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
   User.create(req.body, (error, createdUser) => {
     res.status(201).json ({
       status: 201,
