@@ -17,7 +17,7 @@ const app = express();
 
 const port = 3005;
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 mongoose.connection.once("open", () => {
   console.log("Connected to Mongoose.");
 });
@@ -36,7 +36,7 @@ mongoose.set('useCreateIndex', true);
 app.use(express.static("public"));
 app.use(express.json());
 app.use(session({
-    secret: ,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
   }));
