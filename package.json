@@ -1,0 +1,26 @@
+{
+  "name": "quickapies",
+  "version": "1.0.0",
+  "description": "Search, create and sort through a collection of quick recipes!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cquiett/quickapies.git"
+  },
+  "author": "R. Catanzaro, Y. Chong, C. Quiett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cquiett/quickapies/issues"
+  },
+  "homepage": "https://github.com/cquiett/quickapies#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "mongoose": "^5.6.9"
+  }
+}
