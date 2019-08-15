@@ -14,7 +14,7 @@ const app = express();
 // Configurations
 // =========================
 
-const port = 3005;
+const port = process.env.PORT || 3005;
 
 const MONGODB_URI = process.env.MONGODB_URI
 
