@@ -2,10 +2,7 @@
 // Dependencies
 // =========================
 
-<<<<<<< HEAD
 // const bcypt = require("bcyrpt");
-=======
->>>>>>> 7b6b960d3b491418906d1a4655163b5617e55bd8
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
