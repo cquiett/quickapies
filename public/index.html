@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" ng-app>
+<html lang="en" dir="ltr" ng-app="QuickapieApp">
   <head>
     <meta charset="utf-8">
     <title></title>
@@ -13,9 +13,35 @@
     ====================== -->
     <link rel="stylesheet" href="css/main.css">
   </head>
-  <body>
-    {{ 2 + 2 }}
-    <br />
-    Hello, world.
+  <body ng-controller="MainController as ctrl">
+    <form ng-submit="ctrl.createRecipe()">
+      <fieldset>
+      <input placeholder="name" ng-model="ctrl.name" />
+      <input placeholder="image" ng-model="ctrl.image" />
+      <input placeholder="ingredients" ng-model="ctrl.ingredients" />
+      <input placeholder="cookTime" ng-model="ctrl.cookTime" />
+      <input placeholder="numOfServ" ng-model="ctrl.numOfServ" />
+      <input placeholder="instructions" ng-model="ctrl.instructions" />
+      <input placeholder="tags" ng-model="ctrl.tags" />
+      </fieldset>
+      <input type="submit" value="Add Recipe">
+    </form>
+    <h1 ng-click="ctrl.getRecipes()"><a href="#">Load Recipes</a></h1>
+    <div ng-repeat="recipe in ctrl.recipes">
+      <h2>{{ recipe.name }}</h2>
+      <h2 ng-click="ctrl.deleteRecipe(recipe)"><a href="#">Delete</a></h2>
+      <form ng-submit="ctrl.editRecipe(recipe)">
+        <fieldset>
+        <input placeholder="name" ng-value="ctrl.name" ng-model="ctrl.updatedName" />
+        <input placeholder="image" ng-value="ctrl.image" ng-model="ctrl.updatedImage" />
+        <input placeholder="ingredients" ng-value="ctrl.ingredients" ng-model="ctrl.updatedIngredients" />
+        <input placeholder="cookTime" ng-value="ctrl.cookTime" ng-model="ctrl.updatedCookTime" />
+        <input placeholder="numOfServ" ng-value="ctrl.numOfServ" ng-model="ctrl.updatedNumOfServ" />
+        <input placeholder="instructions" ng-value="ctrl.instructions" ng-model="ctrl.updatedInstructions" />
+        <input placeholder="tags" ng-value="ctrl.tags" ng-model="ctrl.updatedTags" />
+        </fieldset>
+        <input type="submit" value="Edit Recipe">
+      </form>
+    </div>
   </body>
 </html>
