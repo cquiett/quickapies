@@ -1,5 +1,24 @@
 const app = angular.module("QuickapieApp", []);
 
+app.controller('AuthController', ['$http', function($http){
+    const controller =this;
+
+    this.createUser = () => {
+      $http({
+              method: 'POST',
+              url: '/users',
+              data: {
+                      username: this.createdUsername,
+                      password: this.createdPassword
+              }
+      }).then((response) => {
+        console.log(response.data);
+      }, (error) => {
+        console.log(error);
+      })
+    }
+}]);
+
 app.controller("MainController", ["$http", function($http) {
   const controller = this;
 
