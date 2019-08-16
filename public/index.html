@@ -16,54 +16,57 @@
   <body ng-controller="MainController as ctrl">
     <div ng-controller="AuthController as auth">
       <nav>
+        <h1>Quickapies</h1>
         <ul>
-          <li>Create User</li>
-          <li>Log In</li>
-          <li>Log Out</li>
+          <li ng-click="auth.showNewForm = !auth.showNewForm"><a href="#">Create User</a></li>
+          <li ng-click="auth.showLogInForm = !auth.showLogInForm"><a href="#">Log In</a></li>
+          <li ng-click="auth.logOut()"><a href="#">Log Out</a></li>
         </ul>
-        <form ng-submit="auth.createUser()">
+        <form ng-if="auth.showNewForm" ng-submit="auth.createUser()">
           <input type="text" ng-model="auth.createdUsername"/>
           <input type="password" ng-model="auth.createdPassword">
           <input type="submit" name="" value="Create User">
         </form>
-        <form ng-submit="auth.logIn()">
+        <form ng-if="auth.showLogInForm" ng-submit="auth.logIn()">
           <input type="text" ng-model="auth.username" />
           <input type="password" ng-model="auth.password" />
           <input type="submit" value="Log In">
         </form>
-        <form ng-submit="auth.logOut()">
-          <input type="submit" value="Logout">
-        </form>
       </nav>
-      <form ng-submit="ctrl.createRecipe()">
-        <fieldset>
-        <input placeholder="name" ng-model="ctrl.name" />
-        <input placeholder="image" ng-model="ctrl.image" />
-        <input placeholder="ingredients" ng-model="ctrl.ingredients" />
-        <input placeholder="cookTime" ng-model="ctrl.cookTime" />
-        <input placeholder="numOfServ" ng-model="ctrl.numOfServ" />
-        <input placeholder="instructions" ng-model="ctrl.instructions" />
-        <input placeholder="tags" ng-model="ctrl.tags" />
-        </fieldset>
-        <input type="submit" value="Add Recipe">
-      </form>
-      <h1 ng-click="ctrl.getRecipes()"><a href="#">Load Recipes</a></h1>
-      <div ng-repeat="recipe in ctrl.recipes">
-        <h2>{{ recipe.name }}</h2>
-        <h2 ng-click="ctrl.deleteRecipe(recipe)"><a href="#">Delete</a></h2>
-        <form ng-submit="ctrl.editRecipe(recipe)">
-          <fieldset>
-          <input placeholder="name" ng-value="ctrl.name" ng-model="ctrl.updatedName" />
-          <input placeholder="image" ng-value="ctrl.image" ng-model="ctrl.updatedImage" />
-          <input placeholder="ingredients" ng-value="ctrl.ingredients" ng-model="ctrl.updatedIngredients" />
-          <input placeholder="cookTime" ng-value="ctrl.cookTime" ng-model="ctrl.updatedCookTime" />
-          <input placeholder="numOfServ" ng-value="ctrl.numOfServ" ng-model="ctrl.updatedNumOfServ" />
-          <input placeholder="instructions" ng-value="ctrl.instructions" ng-model="ctrl.updatedInstructions" />
-          <input placeholder="tags" ng-value="ctrl.tags" ng-model="ctrl.updatedTags" />
-          </fieldset>
-          <input type="submit" value="Edit Recipe">
-        </form>
+      <div ng-if="auth.loggedInUser">
+        <h2>Welcome, {{ auth.loggedInUser }}</h2>
       </div>
+      <main>
+        <form ng-submit="ctrl.createRecipe()">
+          <fieldset>
+          <input placeholder="name" ng-model="ctrl.name" />
+          <input placeholder="image" ng-model="ctrl.image" />
+          <input placeholder="ingredients" ng-model="ctrl.ingredients" />
+          <input placeholder="cookTime" ng-model="ctrl.cookTime" />
+          <input placeholder="numOfServ" ng-model="ctrl.numOfServ" />
+          <input placeholder="instructions" ng-model="ctrl.instructions" />
+          <input placeholder="tags" ng-model="ctrl.tags" />
+          </fieldset>
+          <input type="submit" value="Add Recipe">
+        </form>
+        <h1 ng-click="ctrl.getRecipes()"><a href="#">Load Recipes</a></h1>
+        <div ng-repeat="recipe in ctrl.recipes">
+          <h2>{{ recipe.name }}</h2>
+          <h2 ng-click="ctrl.deleteRecipe(recipe)"><a href="#">Delete</a></h2>
+          <form ng-submit="ctrl.editRecipe(recipe)">
+            <fieldset>
+            <input placeholder="name" ng-value="ctrl.name" ng-model="ctrl.updatedName" />
+            <input placeholder="image" ng-value="ctrl.image" ng-model="ctrl.updatedImage" />
+            <input placeholder="ingredients" ng-value="ctrl.ingredients" ng-model="ctrl.updatedIngredients" />
+            <input placeholder="cookTime" ng-value="ctrl.cookTime" ng-model="ctrl.updatedCookTime" />
+            <input placeholder="numOfServ" ng-value="ctrl.numOfServ" ng-model="ctrl.updatedNumOfServ" />
+            <input placeholder="instructions" ng-value="ctrl.instructions" ng-model="ctrl.updatedInstructions" />
+            <input placeholder="tags" ng-value="ctrl.tags" ng-model="ctrl.updatedTags" />
+            </fieldset>
+            <input type="submit" value="Edit Recipe">
+          </form>
+        </div>
+      </main>
     </div>
   </body>
 </html>

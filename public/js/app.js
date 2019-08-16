@@ -2,6 +2,8 @@ const app = angular.module("QuickapieApp", []);
 
 app.controller('AuthController', ['$http', function($http){
   const controller = this;
+  this.showNewForm = false;
+  this.showLogInForm = false;
 
     this.createUser = () => {
       $http({
@@ -15,6 +17,7 @@ app.controller('AuthController', ['$http', function($http){
         console.log(response.data);
         this.createdUsername = null;
         this.createdPassword = null;
+        this.showNewForm = false;
       }, (error) => {
         console.log(error);
       })
@@ -32,6 +35,7 @@ app.controller('AuthController', ['$http', function($http){
           console.log(response.data);
           this.username = null;
           this.password = null;
+          this.showLogInForm = false;
           this.isLoggedIn();
       }, (error) => {
           console.log(error);
@@ -46,6 +50,7 @@ app.controller('AuthController', ['$http', function($http){
               url: '/sessions'
           }).then((response) => {
               console.log(response.data);
+              this.loggedInUser = null;
           }, (error) => {
               console.log(error);
           })
