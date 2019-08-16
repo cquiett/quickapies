@@ -44,7 +44,7 @@ app.controller('AuthController', ['$http', function($http){
               method: 'DELETE',
               url: '/sessions'
           }).then((response) => {
-              console.log(response.data);
+              console.log(response.datagit );
           }, (error) => {
               console.log(error);
           })
