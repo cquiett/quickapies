@@ -3,6 +3,10 @@
   --font-text: 'Quicksand', sans-serif;
 }
 
+* {
+  border: 1px solid gold;
+}
+
 /* ==========================
 | | Mobile View
 ========================== */
@@ -36,19 +40,18 @@
     font-size: 3em;
   }
 
-  nav input {
+  .userForms input {
     height: 50px;
     width: 30%;
     font-size: 30px;
   }
 
-  /* ======== searchBar ========= */
+  /* ====== searchBar ====== */
+
 .searchBar {
   height: 100px;
   width: 100%;
-  
 }
-
 
   /* ======== main ========= */
 
@@ -61,6 +64,20 @@
 @media only screen and (min-width: 600px) {
 
   /* ==== header & nav ===== */
+
+  h1 {
+    font-size: 3em;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  a {
+    font-size: 2em;
+  }
 
   /* ======== main ========= */
 

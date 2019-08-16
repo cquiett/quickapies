@@ -136,4 +136,6 @@ app.controller("MainController", ["$http", function($http) {
     });
   };
 
+  this.getRecipes();
+
 }]);
