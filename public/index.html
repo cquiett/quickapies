@@ -30,6 +30,9 @@
         <input type="password" ng-model="auth.password" />
         <input type="submit" value="Log In">
       </form>
+      <form ng-submit="auth.logOut()">
+        <input type="submit" value="Logout">
+      </form>
     </nav>
     <form ng-submit="ctrl.createRecipe()">
       <fieldset>
