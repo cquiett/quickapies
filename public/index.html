@@ -52,7 +52,6 @@
         <main>
           <!-- ========== SEARCH BAR ============== -->
           <div class="searchBar">
-            <h3>Search Bar</h3>
             <div ng-if="auth.loggedInUser">
               <h2>Welcome, {{ auth.loggedInUser }}</h2>
             </div>
@@ -120,16 +119,23 @@
           </div>
           <!-- ========== SHOW ALL RECIPES ============== -->
           <div class="showAllRecipes">
-            <h3>Show All</h3>
             <div ng-repeat="recipe in ctrl.recipes | filter: searchBox">
-              <h3 ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</h3>
-              <h5 ng-click="ctrl.deleteRecipe(recipe)"
-                  ng-if="auth.loggedInUser"
-              ><a href="#">Delete</a></h5>
-              <h5 ng-click="ctrl.indexOfEditForm = $index"
-                  ng-dblclick="ctrl.indexOfEditForm = null"
-                  ng-if="auth.loggedInUser"
-              ><a href="#">Edit</a></h5>
+              <div class="flexAlign">
+                <div>
+                  <h3 ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</h3>
+                </div>
+                <div>
+                  <ul>
+                    <li ng-click="ctrl.deleteRecipe(recipe)"
+                        ng-if="auth.loggedInUser"
+                    ><a href="#">Delete</a></li>
+                    <li ng-click="ctrl.indexOfEditForm = $index"
+                        ng-dblclick="ctrl.indexOfEditForm = null"
+                        ng-if="auth.loggedInUser"
+                    ><a href="#">Edit</a></li>
+                  </ul>
+                </div>
+              </div>
               <form ng-if="$index === ctrl.indexOfEditForm" ng-submit="ctrl.editRecipe(recipe)">
                 <fieldset>
                 <input  type="text"
