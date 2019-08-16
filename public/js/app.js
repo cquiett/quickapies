@@ -101,6 +101,13 @@ app.controller("MainController", ["$http", function($http) {
         tags: this.tags
       }
     }).then(function(response) {
+      controller.name = null;
+      controller.image = null;
+      controller.ingredients = null;
+      controller.cookTime = null;
+      controller.numOfServ = null;
+      controller.instructions = null;
+      controller.tags = null;
       controller.getRecipes();
     }, function(error) {
       console.log(error);

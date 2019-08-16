@@ -59,13 +59,15 @@
           <div ng-if="auth.loggedInUser">
             <form ng-submit="ctrl.createRecipe()">
               <fieldset>
-              <input placeholder="name" ng-model="ctrl.name" />
-              <input placeholder="image" ng-model="ctrl.image" />
-              <input placeholder="ingredients" ng-model="ctrl.ingredients" />
-              <input placeholder="cookTime" ng-model="ctrl.cookTime" />
-              <input placeholder="numOfServ" ng-model="ctrl.numOfServ" />
-              <input placeholder="instructions" ng-model="ctrl.instructions" />
-              <input placeholder="tags" ng-model="ctrl.tags" />
+              <input type="text" placeholder="name" ng-model="ctrl.name" />
+              <input type="text" placeholder="image" ng-model="ctrl.image" />
+              <input type="text" placeholder="ingredients" ng-model="ctrl.ingredients" />
+              <input type="text" placeholder="cookTime" ng-model="ctrl.cookTime" />
+              <input type="number" placeholder="numOfServ" ng-model="ctrl.numOfServ" />
+              <textarea type="text" placeholder="instructions" ng-model="ctrl.instructions">
+                instructions
+              <textarea/>
+              <input type="text" placeholder="tags" ng-model="ctrl.tags" />
               </fieldset>
               <input type="submit" value="Add Recipe">
             </form>
@@ -103,13 +105,13 @@
           <h3>Show All</h3>
           <div ng-repeat="recipe in ctrl.recipes">
             <h3 ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</h3>
-            <h3 ng-click="ctrl.deleteRecipe(recipe)"
+            <h5 ng-click="ctrl.deleteRecipe(recipe)"
                 ng-if="auth.loggedInUser"
-            ><a href="#">Delete</a></h3>
-            <h3 ng-click="ctrl.indexOfEditForm = $index"
+            ><a href="#">Delete</a></h5>
+            <h5 ng-click="ctrl.indexOfEditForm = $index"
                 ng-dblclick="ctrl.indexOfEditForm = null"
                 ng-if="auth.loggedInUser"
-            ><a href="#">Edit</a></h3>
+            ><a href="#">Edit</a></h5>
             <form ng-if="$index === ctrl.indexOfEditForm" ng-submit="ctrl.editRecipe(recipe)">
               <fieldset>
               <input  type="text"
