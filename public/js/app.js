@@ -13,6 +13,7 @@ app.controller('AuthController', ['$http', function($http){
               }
       }).then((response) => {
         console.log(response.data);
+        console.log(controller.createdUsername, controller.createdPassword);
       }, (error) => {
         console.log(error);
       })
