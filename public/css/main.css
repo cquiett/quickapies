@@ -58,6 +58,21 @@ body {
 
   /* ======== main ========= */
 
+  /* ==== create recipe ==== */
+
+  .searchBar input {
+    width: 45%;
+    height: 30px;
+    font-size: 24px;
+  }
+
+  .searchBar textarea {
+    resize: none;
+    width: 85vw;
+    height: 7vh;
+    overflow-y: auto;
+  }
+
   /* ==== recipe cards ===== */
 
   .flexAlign {

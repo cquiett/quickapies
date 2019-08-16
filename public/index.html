@@ -74,15 +74,18 @@
             <div ng-if="auth.loggedInUser">
               <form ng-submit="ctrl.createRecipe()">
                 <fieldset>
-                <input type="text" placeholder="name" ng-model="ctrl.name" />
-                <input type="text" placeholder="image" ng-model="ctrl.image" />
-                <input type="text" placeholder="ingredients" ng-model="ctrl.ingredients" />
-                <input type="text" placeholder="cookTime" ng-model="ctrl.cookTime" />
-                <input type="number" placeholder="numOfServ" ng-model="ctrl.numOfServ" />
-                <textarea type="text" placeholder="instructions" ng-model="ctrl.instructions">
-                  instructions
-                </textarea>
-                <input type="text" placeholder="tags" ng-model="ctrl.tags" />
+                  <legend>Add a Recipe</legend>
+                  <input type="text" placeholder="name" ng-model="ctrl.name" />
+                  <input type="text" placeholder="image" ng-model="ctrl.image" />
+                  <input type="text" placeholder="ingredients" ng-model="ctrl.ingredients" />
+                  <input type="text" placeholder="cookTime" ng-model="ctrl.cookTime" />
+                  <input type="number" placeholder="numOfServ" ng-model="ctrl.numOfServ" />
+                  <input type="text" placeholder="tags" ng-model="ctrl.tags" />
+                </fieldset>
+                <fieldset>
+                  <textarea type="text" placeholder="instructions" ng-model="ctrl.instructions">
+                    instructions
+                  </textarea>
                 </fieldset>
                 <input type="submit" value="Add Recipe">
               </form>
