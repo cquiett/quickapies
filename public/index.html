@@ -16,160 +16,162 @@
   </head>
   <body ng-controller="MainController as ctrl">
     <div ng-controller="AuthController as auth">
-      <nav>
-        <div>
-          <h1>Quickapies</h1>
-        </div>
-        <div>
-          <ul>
-            <li ng-if="!auth.loggedInUser"
-                ng-click="auth.showNewForm = !auth.showNewForm ; auth.showLogInForm = false"
-            ><a href="#">Create User</a></li>
-            <li ng-if="!auth.loggedInUser"
-                ng-click="auth.showLogInForm = !auth.showLogInForm ; auth.showNewForm = false"
-            ><a href="#">Log In</a></li>
-            <li ng-if="auth.loggedInUser"
-                ng-click="auth.logOut()"
-            ><a href="#">Log Out</a></li>
-          </ul>
-        </div>
-      </nav>
-      <div class="userForms">
-        <form ng-if="auth.showNewForm"
-              ng-submit="auth.createUser()">
-          <input type="text" placeholder="Create Username" ng-model="auth.createdUsername"/>
-          <input type="password" placeholder="Create Password" ng-model="auth.createdPassword">
-          <input type="submit" name="" value="Create User">
-        </form>
-        <form ng-if="auth.showLogInForm"
-              ng-submit="auth.logIn()">
-          <input type="text" placeholder="Username" ng-model="auth.username" />
-          <input type="password" placeholder="Password" ng-model="auth.password" />
-          <input type="submit" value="Log In">
-        </form>
-      </div>
-      <main>
-        <!-- ========== SEARCH BAR ============== -->
-        <div class="searchBar">
-          <h3>Search Bar</h3>
-          <div ng-if="auth.loggedInUser">
-            <h2>Welcome, {{ auth.loggedInUser }}</h2>
+      <div ng-controller="searchController as search">
+        <nav>
+          <div>
+            <h1>Quickapies</h1>
           </div>
+          <div>
+            <ul>
+              <li ng-if="!auth.loggedInUser"
+                  ng-click="auth.showNewForm = !auth.showNewForm ; auth.showLogInForm = false"
+              ><a href="#">Create User</a></li>
+              <li ng-if="!auth.loggedInUser"
+                  ng-click="auth.showLogInForm = !auth.showLogInForm ; auth.showNewForm = false"
+              ><a href="#">Log In</a></li>
+              <li ng-if="auth.loggedInUser"
+                  ng-click="auth.logOut()"
+              ><a href="#">Log Out</a></li>
+            </ul>
+          </div>
+        </nav>
+        <div class="userForms">
+          <form ng-if="auth.showNewForm"
+                ng-submit="auth.createUser()">
+            <input type="text" placeholder="Create Username" ng-model="auth.createdUsername"/>
+            <input type="password" placeholder="Create Password" ng-model="auth.createdPassword">
+            <input type="submit" name="" value="Create User">
+          </form>
+          <form ng-if="auth.showLogInForm"
+                ng-submit="auth.logIn()">
+            <input type="text" placeholder="Username" ng-model="auth.username" />
+            <input type="password" placeholder="Password" ng-model="auth.password" />
+            <input type="submit" value="Log In">
+          </form>
+        </div>
+        <main>
+          <!-- ========== SEARCH BAR ============== -->
           <div class="searchBar">
-            <input type="text" placeholder="keyword" ng-model="searchBox[searchBy]" />
+            <h3>Search Bar</h3>
+            <div ng-if="auth.loggedInUser">
+              <h2>Welcome, {{ auth.loggedInUser }}</h2>
+            </div>
+            <div class="searchBar">
+              <input type="text" placeholder="keyword" ng-model="searchBox[searchBy]" />
+            </div>
+            <div class="filters">
+              <select ng-model="searchBy">
+                <option value="$"></option>
+                <option value="name">NAME</option>
+                <option value="ingredients">INGREDIENTS</option>
+                <option value="instructions">INSTRUCTIONS</option>
+                <option value="tags">TAGS</option>
+              </select>
+              <!-- Include Keyword: <input type="radio" name="order" value="name" ng-model="filter" id="keyword">
+              Exclude Keyword: <input type="radio" name="order" value="noKeyword" ng-model="filter" id="noKeyword" /> -->
+            </div>
+            <!-- ========== ADD NEW RECIPE ============== -->
+            <div ng-if="auth.loggedInUser">
+              <form ng-submit="ctrl.createRecipe()">
+                <fieldset>
+                <input type="text" placeholder="name" ng-model="ctrl.name" />
+                <input type="text" placeholder="image" ng-model="ctrl.image" />
+                <input type="text" placeholder="ingredients" ng-model="ctrl.ingredients" />
+                <input type="text" placeholder="cookTime" ng-model="ctrl.cookTime" />
+                <input type="number" placeholder="numOfServ" ng-model="ctrl.numOfServ" />
+                <textarea type="text" placeholder="instructions" ng-model="ctrl.instructions">
+                  instructions
+                </textarea>
+                <input type="text" placeholder="tags" ng-model="ctrl.tags" />
+                </fieldset>
+                <input type="submit" value="Add Recipe">
+              </form>
+            </div>
           </div>
-          <div class="filters">
-            <select ng-model="searchBy">
-              <option value=""></option>
-              <option value="name">NAME</option>
-              <option value="ingredients">INGREDIENTS</option>
-              <option value="instructions">INSTRUCTIONS</option>
-              <option value="tags">TAGS</option>
-            </select>
-            <!-- Include Keyword: <input type="radio" name="order" value="name" ng-model="filter" id="keyword">
-            Exclude Keyword: <input type="radio" name="order" value="noKeyword" ng-model="filter" id="noKeyword" /> -->
-          </div>
-          <!-- ========== ADD NEW RECIPE ============== -->
-          <div ng-if="auth.loggedInUser">
-            <form ng-submit="ctrl.createRecipe()">
-              <fieldset>
-              <input type="text" placeholder="name" ng-model="ctrl.name" />
-              <input type="text" placeholder="image" ng-model="ctrl.image" />
-              <input type="text" placeholder="ingredients" ng-model="ctrl.ingredients" />
-              <input type="text" placeholder="cookTime" ng-model="ctrl.cookTime" />
-              <input type="number" placeholder="numOfServ" ng-model="ctrl.numOfServ" />
-              <textarea type="text" placeholder="instructions" ng-model="ctrl.instructions">
-                instructions
-              </textarea>
-              <input type="text" placeholder="tags" ng-model="ctrl.tags" />
-              </fieldset>
-              <input type="submit" value="Add Recipe">
-            </form>
-          </div>
-        </div>
-        <!-- ========== SHOW ONE RECIPES ============== -->
-        <div ng-if="ctrl.currentRecipeShow" class="showOneRecipe">
-          <div class="flexAlign">
-            <div>
-              <h2>{{ctrl.currentRecipe.name}}</h2>
+          <!-- ========== SHOW ONE RECIPES ============== -->
+          <div ng-if="ctrl.currentRecipeShow" class="showOneRecipe">
+            <div class="flexAlign">
+              <div>
+                <h2>{{ctrl.currentRecipe.name}}</h2>
+              </div>
+              <div>
+                <h4>Cook Time: {{ctrl.currentRecipe.cookTime}}</h4>
+                <h4>Servings: {{ctrl.currentRecipe.numOfServ}}</h4>
+              </div>
+            </div>
+            <div class="flexAlign">
+              <div class="recipeImage">
+                <img ng-src="{{ctrl.currentRecipe.image}}" alt="recipe image">
+              </div>
+              <div>
+                <h4>{{ctrl.currentRecipe.ingredients}}</h4>
+              </div>
             </div>
             <div>
-              <h4>Cook Time: {{ctrl.currentRecipe.cookTime}}</h4>
-              <h4>Servings: {{ctrl.currentRecipe.numOfServ}}</h4>
-            </div>
-          </div>
-          <div class="flexAlign">
-            <div class="recipeImage">
-              <img ng-src="{{ctrl.currentRecipe.image}}" alt="recipe image">
+              <p>{{ctrl.currentRecipe.instructions}}</p>
             </div>
             <div>
-              <h4>{{ctrl.currentRecipe.ingredients}}</h4>
+              <h5>{{ctrl.currentRecipe.tags}}</h5>
+              <h5 ng-click="ctrl.currentRecipeShow = false"><a href="#">Close Recipe</a></h5>
             </div>
           </div>
-          <div>
-            <p>{{ctrl.currentRecipe.instructions}}</p>
+          <!-- ========== SHOW ALL RECIPES ============== -->
+          <div class="showAllRecipes">
+            <h3>Show All</h3>
+            <div ng-repeat="recipe in ctrl.recipes | filter: searchBox">
+              <h3 ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</h3>
+              <h5 ng-click="ctrl.deleteRecipe(recipe)"
+                  ng-if="auth.loggedInUser"
+              ><a href="#">Delete</a></h5>
+              <h5 ng-click="ctrl.indexOfEditForm = $index"
+                  ng-dblclick="ctrl.indexOfEditForm = null"
+                  ng-if="auth.loggedInUser"
+              ><a href="#">Edit</a></h5>
+              <form ng-if="$index === ctrl.indexOfEditForm" ng-submit="ctrl.editRecipe(recipe)">
+                <fieldset>
+                <input  type="text"
+                        placeholder="name"
+                        ng-value="recipe.name"
+                        ng-model="ctrl.updatedName"
+                />
+                <input  type="text"
+                        placeholder="image"
+                        ng-value="recipe.image"
+                        ng-model="ctrl.updatedImage"
+                />
+                <input  type="text"
+                        placeholder="ingredients"
+                        ng-value="recipe.ingredients"
+                        ng-model="ctrl.updatedIngredients"
+                />
+                <input  type="text"
+                        placeholder="cookTime"
+                        ng-value="recipe.cookTime"
+                        ng-model="ctrl.updatedCookTime"
+                />
+                <input  type="text"
+                        placeholder="numOfServ"
+                        ng-value="recipe.numOfServ"
+                        ng-model="ctrl.updatedNumOfServ"
+                />
+                <textarea  type="text"
+                        placeholder="instructions"
+                        ng-value="recipe.instructions"
+                        ng-model="ctrl.updatedInstructions">
+                        {{recipe.instructions}}
+                </textarea>
+                <input  type="text"
+                        placeholder="tags"
+                        ng-value="recipe.tags"
+                        ng-model="ctrl.updatedTags"
+                />
+                </fieldset>
+                <input type="submit" value="Edit Recipe">
+              </form>
+            </div>
           </div>
-          <div>
-            <h5>{{ctrl.currentRecipe.tags}}</h5>
-            <h5 ng-click="ctrl.currentRecipeShow = false"><a href="#">Close Recipe</a></h5>
-          </div>
-        </div>
-        <!-- ========== SHOW ALL RECIPES ============== -->
-        <div class="showAllRecipes">
-          <h3>Show All</h3>
-          <div ng-repeat="recipe in ctrl.recipes | filter: searchBox">
-            <h3 ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</h3>
-            <h5 ng-click="ctrl.deleteRecipe(recipe)"
-                ng-if="auth.loggedInUser"
-            ><a href="#">Delete</a></h5>
-            <h5 ng-click="ctrl.indexOfEditForm = $index"
-                ng-dblclick="ctrl.indexOfEditForm = null"
-                ng-if="auth.loggedInUser"
-            ><a href="#">Edit</a></h5>
-            <form ng-if="$index === ctrl.indexOfEditForm" ng-submit="ctrl.editRecipe(recipe)">
-              <fieldset>
-              <input  type="text"
-                      placeholder="name"
-                      ng-value="recipe.name"
-                      ng-model="ctrl.updatedName"
-              />
-              <input  type="text"
-                      placeholder="image"
-                      ng-value="recipe.image"
-                      ng-model="ctrl.updatedImage"
-              />
-              <input  type="text"
-                      placeholder="ingredients"
-                      ng-value="recipe.ingredients"
-                      ng-model="ctrl.updatedIngredients"
-              />
-              <input  type="text"
-                      placeholder="cookTime"
-                      ng-value="recipe.cookTime"
-                      ng-model="ctrl.updatedCookTime"
-              />
-              <input  type="text"
-                      placeholder="numOfServ"
-                      ng-value="recipe.numOfServ"
-                      ng-model="ctrl.updatedNumOfServ"
-              />
-              <textarea  type="text"
-                      placeholder="instructions"
-                      ng-value="recipe.instructions"
-                      ng-model="ctrl.updatedInstructions">
-                      {{recipe.instructions}}
-              </textarea>
-              <input  type="text"
-                      placeholder="tags"
-                      ng-value="recipe.tags"
-                      ng-model="ctrl.updatedTags"
-              />
-              </fieldset>
-              <input type="submit" value="Edit Recipe">
-            </form>
-          </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
   </body>
 </html>

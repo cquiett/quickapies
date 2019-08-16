@@ -155,3 +155,10 @@ app.controller("MainController", ["$http", function($http) {
   this.getRecipes();
 
 }]);
+
+  app.controller("searchController",function($scope){
+    $scope.searchBox = {}
+    $scope.searchBy = '$'
+
+    $scope.orderProp="name";
+  });
