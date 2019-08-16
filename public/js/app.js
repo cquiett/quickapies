@@ -103,6 +103,13 @@ app.controller("MainController", ["$http", function($http) {
     }).then(function(response) {
       controller.getRecipes();
     }, function(error) {
+      controller.name = null;
+      controller.image = null;
+      controller.ingredients = null;
+      controller.cookTime = null;
+      controller.numOfServ = null;
+      controller.instructions = null;
+      controller.tags = null;
       console.log(error);
     });
   };
