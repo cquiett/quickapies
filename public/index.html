@@ -50,7 +50,6 @@
           </fieldset>
           <input type="submit" value="Add Recipe">
         </form>
-        <h1 ng-click="ctrl.getRecipes()"><a href="#">Load Recipes</a></h1>
         <div ng-repeat="recipe in ctrl.recipes">
           <h2>{{ recipe.name }}</h2>
           <h2 ng-click="ctrl.deleteRecipe(recipe)"><a href="#">Delete</a></h2>
