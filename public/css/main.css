@@ -71,6 +71,14 @@ body {
     font-family: var(--font-headers);
   }
 
+  .recipeImage {
+    width: 30%;
+  }
+
+  .recipeImage img {
+    width: 100%;
+  }
+
 /* ==========================
 | | Browser View
 ========================== */
