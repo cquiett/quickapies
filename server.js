@@ -15,7 +15,6 @@ const recipesController = require('./controllers/recipes.js')
 const usersController = require('./controllers/users.js')
 const sessionsController = require('./controllers/sessions.js')
 
-const Recipes = require('./models/recipes.js')
 // =========================
 // Configurations
 // =========================
