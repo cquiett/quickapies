@@ -19,9 +19,9 @@
       <nav>
         <h1>Quickapies</h1>
         <ul>
-          <li ng-click="auth.showNewForm = !auth.showNewForm"><a href="#">Create User</a></li>
-          <li ng-click="auth.showLogInForm = !auth.showLogInForm"><a href="#">Log In</a></li>
-          <li ng-click="auth.logOut()"><a href="#">Log Out</a></li>
+          <li ng-if="!auth.loggedInUser" ng-click="auth.showNewForm = !auth.showNewForm"><a href="#">Create User</a></li>
+          <li ng-if="!auth.loggedInUser" ng-click="auth.showLogInForm = !auth.showLogInForm"><a href="#">Log In</a></li>
+          <li ng-if="auth.loggedInUser" ng-click="auth.logOut()"><a href="#">Log Out</a></li>
         </ul>
         <form ng-if="auth.showNewForm" ng-submit="auth.createUser()">
           <input type="text" ng-model="auth.createdUsername"/>
