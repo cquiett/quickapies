@@ -14,6 +14,18 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body ng-controller="MainController as ctrl">
+    <nav ng-controller="AuthController as auth">
+      <ul>
+        <li>Create User</li>
+        <li>Log In</li>
+        <li>Log Out</li>
+      </ul>
+      <form ng-submit="auth.createUser()">
+        <input type="text" ng-model="auth.createdUsername"/>
+        <input type="password" ng-model="auth.createdPassword">
+        <input type="submit" name="" value="Create User">
+      </form>
+    </nav>
     <form ng-submit="ctrl.createRecipe()">
       <fieldset>
       <input placeholder="name" ng-model="ctrl.name" />
