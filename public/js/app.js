@@ -27,13 +27,17 @@ app.controller('AuthController', ['$http', function($http){
                       password: this.password
               }
       }).then((response) => {
+        console.log(response.data);
+        console.log(this.username, this.password);
           controller.username = null;
           controller.password = null;
       }, (error) => {
           console.log(error);
+          console.log(error.data);
+          console.log(this.username, this.password);
       });
     }
-    
+
 }]);
 
 app.controller("MainController", ["$http", function($http) {
