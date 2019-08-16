@@ -72,6 +72,7 @@ app.controller('AuthController', ['$http', function($http){
 
 app.controller("MainController", ["$http", function($http) {
   const controller = this;
+  this.indexOfEditForm = null;
 
   this.getRecipes = function () {
     $http({
@@ -118,6 +119,7 @@ app.controller("MainController", ["$http", function($http) {
         tags: this.updatedTags
       }
     }).then(function(response) {
+      this.indexOfEditForm = null;
       console.log(response.data);
       controller.getRecipes();
     }, function(error) {
