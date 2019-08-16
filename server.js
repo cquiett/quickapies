@@ -47,7 +47,7 @@ app.use(session({
   }));
 app.use('/recipes', recipesController)
 app.use('/users', usersController)
-app.use('/sesssions', sessionsController)
+app.use('/sessions', sessionsController)
 
 // ==========================
 // Listener
