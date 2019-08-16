@@ -138,6 +138,10 @@ app.controller("MainController", ["$http", function($http) {
     });
   };
 
+  this.saveOne = function (recipe) {
+    this.showOneRecipe = recipe;
+  }
+
   this.getRecipes();
 
 }]);
