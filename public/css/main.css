@@ -1,3 +1,39 @@
-* {
-  background: lightblue;
+:root {
+  --font-headers: 'Pacifico', cursive;
+  --font-text: 'Quicksand', sans-serif;
+}
+
+/* ==========================
+| | Mobile View
+========================== */
+
+  /* ==== header & nav ===== */
+
+  h1 {
+    font-family: var(--font-headers);
+    font-size: 5em;
+  }
+
+  nav {
+    margin: 0 auto;
+    text-align: center;
+    width: 100;
+  }
+
+  /* ======== main ========= */
+
+  /* ==== recipe cards ===== */
+
+/* ==========================
+| | Browser View
+========================== */
+
+@media only screen and (min-width: 600px) {
+
+  /* ==== header & nav ===== */
+
+  /* ======== main ========= */
+
+  /* ==== recipe cards ===== */
+
 }
