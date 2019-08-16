@@ -36,6 +36,20 @@
     font-size: 3em;
   }
 
+  nav input {
+    height: 50px;
+    width: 30%;
+    font-size: 30px;
+  }
+
+  /* ======== searchBar ========= */
+.searchBar {
+  height: 100px;
+  width: 100%;
+  
+}
+
+
   /* ======== main ========= */
 
   /* ==== recipe cards ===== */
