@@ -39,6 +39,17 @@ app.controller('AuthController', ['$http', function($http){
       });
     }
 
+    this.logOut = () => {
+      $http({
+              method: 'DELETE',
+              url: '/sessions'
+          }).then((response) => {
+              console.log(response.data);
+          }, (error) => {
+              console.log(error);
+          })
+    }
+
 }]);
 
 app.controller("MainController", ["$http", function($http) {
