@@ -10,6 +10,10 @@ require("dotenv").config();
 
 const app = express();
 
+const recipesController = require('./controllers/recipes.js')
+const usersController = require('./controllers/users.js')
+const sessionsController = require('./controllers/sessions.js')
+
 // =========================
 // Configurations
 // =========================
@@ -41,6 +45,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false
   }));
+app.use('/recipes', recipesController)
+app.use('/users', usersController)
+app.use('/sesssions', sessionsController)
 
 // ==========================
 // Listener

@@ -10,6 +10,6 @@ const recipeSchema = new mongoose.Schema({
   tags: String
 });
 
-const Todos = mongoose.model('Recipe', recipeSchema);
+const Recipes = mongoose.model('Recipe', recipeSchema);
 
 module.exports = Recipes;
