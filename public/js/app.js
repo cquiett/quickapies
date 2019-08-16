@@ -17,6 +17,7 @@ app.controller('AuthController', ['$http', function($http){
         console.log(error);
       })
     }
+
 }]);
 
 app.controller("MainController", ["$http", function($http) {
