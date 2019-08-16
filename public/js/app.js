@@ -50,6 +50,19 @@ app.controller('AuthController', ['$http', function($http){
           })
     }
 
+    this.isLoggedIn = () => {
+      $http({
+              method: 'GET',
+              url: '/loggedin'
+        }).then((response) => {
+            this.loggedInUser = response.data.username
+            console.log(response.data, response.data.username);
+            console.log('GOT EDITING RIGHTS');
+        }, (error) => {
+            console.log(error.data);
+        })
+    }
+
 }]);
 
 app.controller("MainController", ["$http", function($http) {
