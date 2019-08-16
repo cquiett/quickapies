@@ -72,6 +72,8 @@ app.controller('AuthController', ['$http', function($http){
 
 app.controller("MainController", ["$http", function($http) {
   const controller = this;
+  this.currentRecipe = null;
+  this.currentRecipeShow = false;
   this.indexOfEditForm = null;
 
   this.getRecipes = function () {
@@ -119,8 +121,8 @@ app.controller("MainController", ["$http", function($http) {
         tags: this.updatedTags
       }
     }).then(function(response) {
-      this.indexOfEditForm = null;
       console.log(response.data);
+      controller.indexOfEditForm = null;
       controller.getRecipes();
     }, function(error) {
       console.log(error);
@@ -139,7 +141,8 @@ app.controller("MainController", ["$http", function($http) {
   };
 
   this.saveOne = function (recipe) {
-    this.showOneRecipe = recipe;
+    this.currentRecipe = recipe;
+    this.currentRecipeShow = true;
   }
 
   this.getRecipes();

@@ -7,6 +7,10 @@
   border: 1px solid gold;
 }
 
+body {
+  font-family: var(--font-text);
+}
+
 /* ==========================
 | | Mobile View
 ========================== */
@@ -48,14 +52,24 @@
 
   /* ====== searchBar ====== */
 
-.searchBar {
-  height: 100px;
-  width: 100%;
-}
+  .searchBar {
+    width: 100%;
+  }
 
   /* ======== main ========= */
 
   /* ==== recipe cards ===== */
+
+  .flexAlign {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 2em;
+    font-family: var(--font-headers);
+  }
 
 /* ==========================
 | | Browser View

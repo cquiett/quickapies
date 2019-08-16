@@ -72,28 +72,44 @@
           </div>
         </div>
         <!-- ========== SHOW ONE RECIPES ============== -->
-        <div class="showOneRecipe">
-          <h3>Show One</h3>
-          <img ng-src="recipe.image" alt="recipe image">
-          <h4>{{recipe.name}}</h4>
-          <h4>{{recipe.ingredients}}</h4>
-          <h4>{{recipe.cookTime}}</h4>
-          <h4>{{recipe.numOfServ}}</h4>
-          <p>{{recipe.instructions}}</p>
-          <h5>{{recipe.tags}}</h5>
+        <div ng-if="ctrl.currentRecipeShow" class="showOneRecipe">
+          <div class="flexAlign">
+            <div>
+              <h2>{{ctrl.currentRecipe.name}}</h2>
+            </div>
+            <div>
+              <h4>Cook Time: {{ctrl.currentRecipe.cookTime}}</h4>
+              <h4>Servings: {{ctrl.currentRecipe.numOfServ}}</h4>
+            </div>
+          </div>
+          <div class="flexAlign">
+            <div>
+              <img ng-src="ctrl.currentRecipe.image" alt="recipe image">
+            </div>
+            <div>
+              <h4>{{ctrl.currentRecipe.ingredients}}</h4>
+            </div>
+          </div>
+          <div>
+            <p>{{ctrl.currentRecipe.instructions}}</p>
+          </div>
+          <div>
+            <h5>{{ctrl.currentRecipe.tags}}</h5>
+            <h5 ng-click="ctrl.currentRecipeShow = false"><a href="#">Close Recipe</a></h5>
+          </div>
         </div>
         <!-- ========== SHOW ALL RECIPES ============== -->
         <div class="showAllRecipes">
           <h3>Show All</h3>
           <div ng-repeat="recipe in ctrl.recipes">
-            <h2>{{ recipe.name }}</h2>
-            <h2 ng-click="ctrl.deleteRecipe(recipe)"
+            <h3 ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</h3>
+            <h3 ng-click="ctrl.deleteRecipe(recipe)"
                 ng-if="auth.loggedInUser"
-            ><a href="#">Delete</a></h2>
-            <h2 ng-click="ctrl.indexOfEditForm = $index"
+            ><a href="#">Delete</a></h3>
+            <h3 ng-click="ctrl.indexOfEditForm = $index"
                 ng-dblclick="ctrl.indexOfEditForm = null"
                 ng-if="auth.loggedInUser"
-            ><a href="#">Edit</a></h2>
+            ><a href="#">Edit</a></h3>
             <form ng-if="$index === ctrl.indexOfEditForm" ng-submit="ctrl.editRecipe(recipe)">
               <fieldset>
               <input  type="text"
