@@ -10,9 +10,12 @@ const session = require("express-session");
 require("dotenv").config();
 
 const app = express();
+
 const recipesController = require('./controllers/recipes.js')
 const usersController = require('./controllers/users.js')
 const sessionsController = require('./controllers/sessions.js')
+
+const Recipes = require('./models/recipes.js')
 // =========================
 // Configurations
 // =========================
