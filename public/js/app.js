@@ -18,6 +18,23 @@ app.controller('AuthController', ['$http', function($http){
         console.log(error);
       })
     }
+
+    this.logIn = () => {
+      $http({
+              method: "POST",
+              url: '/sessions',
+              data: {
+                      username: this.username,
+                      password: this.password
+              }
+      }).then((response) => {
+          controller.username = null;
+          controller.password = null;
+      }, (error) => {
+          console.log(error);
+      });
+    }
+    
 }]);
 
 app.controller("MainController", ["$http", function($http) {
