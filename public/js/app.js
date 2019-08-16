@@ -1,7 +1,7 @@
 const app = angular.module("QuickapieApp", []);
 
 app.controller('AuthController', ['$http', function($http){
-    const controller =this;
+  const controller = this;
 
     this.createUser = () => {
       $http({
@@ -13,7 +13,8 @@ app.controller('AuthController', ['$http', function($http){
               }
       }).then((response) => {
         console.log(response.data);
-        console.log(controller.createdUsername, controller.createdPassword);
+        this.createdUsername = null;
+        this.createdPassword = null;
       }, (error) => {
         console.log(error);
       })
@@ -28,10 +29,10 @@ app.controller('AuthController', ['$http', function($http){
                       password: this.password
               }
       }).then((response) => {
-        console.log(response.data);
-        console.log(this.username, this.password);
-          controller.username = null;
-          controller.password = null;
+          console.log(response.data);
+          this.username = null;
+          this.password = null;
+          this.isLoggedIn();
       }, (error) => {
           console.log(error);
           console.log(error.data);
@@ -44,7 +45,7 @@ app.controller('AuthController', ['$http', function($http){
               method: 'DELETE',
               url: '/sessions'
           }).then((response) => {
-              console.log(response.datagit );
+              console.log(response.data);
           }, (error) => {
               console.log(error);
           })
@@ -56,7 +57,6 @@ app.controller('AuthController', ['$http', function($http){
               url: '/loggedin'
         }).then((response) => {
             this.loggedInUser = response.data.username
-            console.log(response.data, response.data.username);
             console.log('GOT EDITING RIGHTS');
         }, (error) => {
             console.log(error.data);

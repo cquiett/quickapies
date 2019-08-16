@@ -50,6 +50,21 @@ app.use('/users', usersController)
 app.use('/sessions', sessionsController)
 
 // ==========================
+// Routes
+// ==========================
+
+app.get("/loggedin", (req, res) => {
+  if (req.session.currentUser) {
+    res.json(req.session.currentUser);
+  } else {
+    res.status(401).json ({
+      status: 401,
+      message: "not logged in"
+    });
+  };
+});
+
+// ==========================
 // Listener
 // ==========================
 
