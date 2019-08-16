@@ -101,8 +101,6 @@ app.controller("MainController", ["$http", function($http) {
         tags: this.tags
       }
     }).then(function(response) {
-      controller.getRecipes();
-    }, function(error) {
       controller.name = null;
       controller.image = null;
       controller.ingredients = null;
@@ -110,6 +108,8 @@ app.controller("MainController", ["$http", function($http) {
       controller.numOfServ = null;
       controller.instructions = null;
       controller.tags = null;
+      controller.getRecipes();
+    }, function(error) {
       console.log(error);
     });
   };
