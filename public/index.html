@@ -55,6 +55,20 @@
           <div ng-if="auth.loggedInUser">
             <h2>Welcome, {{ auth.loggedInUser }}</h2>
           </div>
+          <div class="searchBar">
+            <input type="text" placeholder="keyword" ng-model="searchBox[searchBy]" />
+          </div>
+          <div class="filters">
+            <select ng-model="searchBy">
+              <option value=""></option>
+              <option value="name">NAME</option>
+              <option value="ingredients">INGREDIENTS</option>
+              <option value="instructions">INSTRUCTIONS</option>
+              <option value="tags">TAGS</option>
+            </select>
+            <!-- Include Keyword: <input type="radio" name="order" value="name" ng-model="filter" id="keyword">
+            Exclude Keyword: <input type="radio" name="order" value="noKeyword" ng-model="filter" id="noKeyword" /> -->
+          </div>
           <!-- ========== ADD NEW RECIPE ============== -->
           <div ng-if="auth.loggedInUser">
             <form ng-submit="ctrl.createRecipe()">
@@ -103,7 +117,7 @@
         <!-- ========== SHOW ALL RECIPES ============== -->
         <div class="showAllRecipes">
           <h3>Show All</h3>
-          <div ng-repeat="recipe in ctrl.recipes">
+          <div ng-repeat="recipe in ctrl.recipes | filter: searchBox">
             <h3 ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</h3>
             <h5 ng-click="ctrl.deleteRecipe(recipe)"
                 ng-if="auth.loggedInUser"
