@@ -24,18 +24,20 @@
           <li ng-if="auth.loggedInUser" ng-click="auth.logOut()"><a href="#">Log Out</a></li>
         </ul>
         <form ng-if="auth.showNewForm" ng-submit="auth.createUser()">
-          <input type="text" ng-model="auth.createdUsername"/>
-          <input type="password" ng-model="auth.createdPassword">
+          <input type="text" placeholder="Create Username" ng-model="auth.createdUsername"/>
+          <input type="password" placeholder="Create Password" ng-model="auth.createdPassword">
           <input type="submit" name="" value="Create User">
         </form>
         <form ng-if="auth.showLogInForm" ng-submit="auth.logIn()">
-          <input type="text" ng-model="auth.username" />
-          <input type="password" ng-model="auth.password" />
+          <input type="text" placeholder="Username" ng-model="auth.username" />
+          <input type="password" placeholder="Password" ng-model="auth.password" />
           <input type="submit" value="Log In">
         </form>
       </nav>
-      <div ng-if="auth.loggedInUser">
-        <h2>Welcome, {{ auth.loggedInUser }}</h2>
+      <div class="searchBar">
+        <div ng-if="auth.loggedInUser">
+          <h2>Welcome, {{ auth.loggedInUser }}</h2>
+        </div>
       </div>
       <main>
         <form ng-submit="ctrl.createRecipe()">
