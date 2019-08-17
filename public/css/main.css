@@ -117,7 +117,7 @@ input:focus, textarea:focus {
   .searchBar {
     background-color: var(--color-white);
     border: 1px solid grey;
-    border-radius: 5px;
+    border-top: 3px solid var(--color-darkbrown);
     width: 100%;
   }
 
@@ -176,17 +176,12 @@ input:focus, textarea:focus {
     margin-right: 5px;
   }
 
-  a {
-    text-decoration: none;
-    font-size: 16px;
-  }
-
   /* ===== recipe card ===== */
 
   .showOneRecipe {
     background-color: var(--color-white);
     border: 1px solid grey;
-    border-radius: 5px;
+    border-top: 3px solid var(--color-darkbrown);
   }
 
   .flexAlign {
@@ -272,12 +267,39 @@ input:focus, textarea:focus {
     width: 100%;
   }
 
+  .close-recipe {
+    text-align: right;
+  }
+
+  .close-recipe h6 {
+    margin: 0 20px;
+  }
+
+  .showOneRecipe a {
+    text-decoration: none;
+    font-size: 16px;
+    color: var(--color-black);
+  }
+
+  .showOneRecipe a:hover {
+    color: var(--color-lightblue);
+  }
+
+  .showOneRecipe a:visited {
+    color: var(--color-black);
+  }
+
+  .showOneRecipe a:visited:hover {
+    color: var(--color-lightblue);
+  }
+
   /* ===== recipe list ===== */
 
   .showAllRecipes {
     background-color: var(--color-white);
     border: 1px solid grey;
-    border-radius: 5px;
+    border-top: 3px solid var(--color-darkbrown);
+    margin-bottom: 75px;
   }
 
   .clickme:hover {
@@ -294,6 +316,30 @@ input:focus, textarea:focus {
 
   .my-recipe img {
     width: 100%;
+  }
+
+  /* ======== footer ======= */
+
+  footer {
+    background-color: var(--color-darkbrown);
+    height: 75px;
+    width: 100%;
+  }
+
+  .social-media {
+    margin-top: 5px;
+    text-align: center;
+    color: var(--color-lightblue);
+  }
+
+  footer li {
+    display: inline;
+    margin: 0 10px;
+  }
+
+  footer a, footer a:visited {
+    text-decoration: none;
+    color: var(--color-lightblue);
   }
 
 /* ==========================
@@ -341,12 +387,14 @@ input:focus, textarea:focus {
   .searchBar {
     width: 22%;
     height: 650px;
+    border-radius: 5px;
     overflow-y: auto;
   }
 
   .showOneRecipe {
     width: 45%;
     height: 650px;
+    border-radius: 5px;
     overflow-y: auto;
     order: 1;
   }
@@ -354,6 +402,7 @@ input:focus, textarea:focus {
   .showAllRecipes {
     width: 30%;
     height: 650px;
+    border-radius: 5px;
     overflow-y: auto;
   }
 

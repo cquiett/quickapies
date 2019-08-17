@@ -8,6 +8,8 @@
     ====================== -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
     <script src="js/app.js" charset="utf-8"></script>
+    <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
     <!-- =====================
     | | Stylesheets
     ====================== -->
@@ -92,6 +94,9 @@
           </div>
           <!-- ========== SHOW ONE RECIPES ============== -->
           <div ng-if="ctrl.currentRecipeShow" class="showOneRecipe">
+            <div class="close-recipe">
+              <h6 ng-click="ctrl.currentRecipeShow = false"><a href="#">x</a></h6>
+            </div>
             <div class="widthAlign">
               <div class="flexAlign">
                 <div>
@@ -116,7 +121,6 @@
               </div>
               <div class="rightAlign">
                 <h5><span class="cardTitle">Tags:</span> {{ctrl.currentRecipe.tags}}</h5>
-                <h5 ng-click="ctrl.currentRecipeShow = false"><a href="#">Close Recipe</a></h5>
                 <div class="edit-delete">
                   <ul>
                     <li ng-click="ctrl.indexOfEditForm = !ctrl.indexOfEditForm"
@@ -205,6 +209,20 @@
             </div>
           </div>
         </main>
+        <footer>
+          <div class="centerAlign">
+            <ul>
+              <li><a href="#">main</a></li>
+              <li><a href="#">about</a></li>
+            </ul>
+          </div>
+          <div class="social-media">
+            <ion-icon name="logo-facebook" size="large"></ion-icon>
+            <ion-icon name="logo-instagram" size="large"></ion-icon>
+            <ion-icon name="logo-twitter" size="large"></ion-icon>
+            <ion-icon name="logo-pinterest" size="large"></ion-icon>
+          </div>
+        </footer>
       </div>
     </div>
   </body>
