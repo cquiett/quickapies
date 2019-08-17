@@ -156,9 +156,7 @@ app.controller("MainController", ["$http", function($http) {
 
 }]);
 
-  app.controller("searchController",function($scope){
+  app.controller("SearchController",function($scope){
     $scope.searchBox = {}
     $scope.searchBy = '$'
-
-    $scope.orderProp="name";
   });
