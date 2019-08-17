@@ -299,7 +299,7 @@ input:focus, textarea:focus {
     background-color: var(--color-white);
     border: 1px solid grey;
     border-top: 3px solid var(--color-darkbrown);
-    margin-bottom: 75px;
+    margin-bottom: 90px;
   }
 
   .clickme:hover {
@@ -323,6 +323,8 @@ input:focus, textarea:focus {
   footer {
     background-color: var(--color-darkbrown);
     height: 75px;
+    position: fixed;
+    bottom: 0;
     width: 100%;
   }
 
@@ -386,14 +388,14 @@ input:focus, textarea:focus {
 
   .searchBar {
     width: 22%;
-    height: 650px;
+    height: 70vh;
     border-radius: 5px;
     overflow-y: auto;
   }
 
   .showOneRecipe {
     width: 45%;
-    height: 650px;
+    height: 70vh;
     border-radius: 5px;
     overflow-y: auto;
     order: 1;
@@ -401,7 +403,7 @@ input:focus, textarea:focus {
 
   .showAllRecipes {
     width: 30%;
-    height: 650px;
+    height: 70vh;
     border-radius: 5px;
     overflow-y: auto;
   }
