@@ -44,8 +44,8 @@
           </form>
           <form ng-if="auth.showLogInForm"
                 ng-submit="auth.logIn()">
-            <input type="text" placeholder="Username" ng-model="auth.username" />
-            <input type="password" placeholder="Password" ng-model="auth.password" />
+            <input type="text" placeholder="username" ng-model="auth.username" />
+            <input type="password" placeholder="password" ng-model="auth.password" />
             <input type="submit" value="Log In">
           </form>
         </div>
@@ -117,6 +117,59 @@
               <div class="rightAlign">
                 <h5><span class="cardTitle">Tags:</span> {{ctrl.currentRecipe.tags}}</h5>
                 <h5 ng-click="ctrl.currentRecipeShow = false"><a href="#">Close Recipe</a></h5>
+                <div class="edit-delete">
+                  <ul>
+                    <li ng-click="ctrl.indexOfEditForm = !ctrl.indexOfEditForm"
+                        ng-if="auth.loggedInUser"
+                    ><a href="#">Edit</a></li>
+                    <li ng-click="ctrl.deleteRecipe(ctrl.currentRecipe)"
+                        ng-if="auth.loggedInUser"
+                    ><a href="#">Delete</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <form ng-if="ctrl.indexOfEditForm" ng-submit="ctrl.editRecipe(ctrl.currentRecipe)">
+                  <fieldset>
+                  <input  type="text"
+                          placeholder="name"
+                          ng-value="ctrl.currentRecipe.name"
+                          ng-model="ctrl.updatedName"
+                  />
+                  <input  type="text"
+                          placeholder="image"
+                          ng-value="ctrl.currentRecipe.image"
+                          ng-model="ctrl.updatedImage"
+                  />
+                  <input  type="text"
+                          placeholder="ingredients"
+                          ng-value="ctrl.currentRecipe.ingredients"
+                          ng-model="ctrl.updatedIngredients"
+                  />
+                  <input  type="text"
+                          placeholder="cookTime"
+                          ng-value="ctrl.currentRecipe.cookTime"
+                          ng-model="ctrl.updatedCookTime"
+                  />
+                  <input  type="text"
+                          placeholder="numOfServ"
+                          ng-value="ctrl.currentRecipe.numOfServ"
+                          ng-model="ctrl.updatedNumOfServ"
+                  />
+                  <textarea  type="text"
+                          placeholder="instructions"
+                          ng-value="ctrl.currentRecipe.instructions"
+                          ng-model="ctrl.updatedInstructions">
+                          {{recipe.instructions}}
+                  </textarea>
+                  <input  type="text"
+                          placeholder="tags"
+                          ng-value="ctrl.currentRecipe.tags"
+                          ng-model="ctrl.updatedTags"
+                  />
+                  </fieldset>
+                  <input type="submit" value="Edit Recipe">
+                </form>
               </div>
             </div>
           </div>
@@ -129,59 +182,7 @@
                 <div>
                   <h3 ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</h3>
                 </div>
-                <div class="edit-delete">
-                  <ul>
-                    <li ng-click="ctrl.deleteRecipe(recipe)"
-                        ng-if="auth.loggedInUser"
-                    ><a href="#">Delete</a></li>
-                    <li ng-click="ctrl.indexOfEditForm = $index"
-                        ng-dblclick="ctrl.indexOfEditForm = null"
-                        ng-if="auth.loggedInUser"
-                    ><a href="#">Edit</a></li>
-                  </ul>
-                </div>
               </div>
-              <form ng-if="$index === ctrl.indexOfEditForm" ng-submit="ctrl.editRecipe(recipe)">
-                <fieldset>
-                <input  type="text"
-                        placeholder="name"
-                        ng-value="recipe.name"
-                        ng-model="ctrl.updatedName"
-                />
-                <input  type="text"
-                        placeholder="image"
-                        ng-value="recipe.image"
-                        ng-model="ctrl.updatedImage"
-                />
-                <input  type="text"
-                        placeholder="ingredients"
-                        ng-value="recipe.ingredients"
-                        ng-model="ctrl.updatedIngredients"
-                />
-                <input  type="text"
-                        placeholder="cookTime"
-                        ng-value="recipe.cookTime"
-                        ng-model="ctrl.updatedCookTime"
-                />
-                <input  type="text"
-                        placeholder="numOfServ"
-                        ng-value="recipe.numOfServ"
-                        ng-model="ctrl.updatedNumOfServ"
-                />
-                <textarea  type="text"
-                        placeholder="instructions"
-                        ng-value="recipe.instructions"
-                        ng-model="ctrl.updatedInstructions">
-                        {{recipe.instructions}}
-                </textarea>
-                <input  type="text"
-                        placeholder="tags"
-                        ng-value="recipe.tags"
-                        ng-model="ctrl.updatedTags"
-                />
-                </fieldset>
-                <input type="submit" value="Edit Recipe">
-              </form>
             </div>
           </div>
         </main>
