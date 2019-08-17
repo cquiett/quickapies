@@ -1,14 +1,28 @@
 :root {
   --font-headers: 'Pacifico', cursive;
   --font-text: 'Quicksand', sans-serif;
+  --color-lightbrown: #F2B76B;
+  --color-darkbrown: #694312;
+  --color-white: #F0DCC2;
+  --color-darkblue: #1F5F82;
+  --color-lightblue: #6BC2F2;
+  --color-black: #1B1817;
 }
 
-* {
+/* * {
   border: 1px solid gold;
-}
+} */
 
 body {
   font-family: var(--font-text);
+  background-color: var(--color-lightbrown);
+  color: var(--color-darkbrown);
+	text-shadow:
+	-1px -1px 0 ghostwhite,
+	1px -1px 0 ghostwhite,
+	-1px 1px 0 ghostwhite,
+	1px 1px 0 ghostwhite;
+  margin: 0;
 }
 
 /* ==========================
@@ -19,11 +33,15 @@ body {
 
   h1 {
     font-family: var(--font-headers);
-    font-size: 5em;
+    font-size: 4em;
     margin: 0;
   }
 
   nav {
+    background-image: url("/images/youjeen-cho-unsplash.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     margin: 0 auto;
     text-align: center;
     width: 100;
@@ -32,16 +50,22 @@ body {
   ul {
     list-style: none;
     margin: 0;
+    padding: 0;
   }
 
-  li {
+  nav li {
     display: inline;
     margin: 0 10px 0 10px;
   }
 
-  a {
+  nav a {
     text-decoration: none;
-    font-size: 3em;
+    font-size: 2em;
+  }
+
+  .userForms {
+    text-align: center;
+    background-color: var(--color-darkbrown);
   }
 
   .userForms input {
@@ -53,12 +77,11 @@ body {
   /* ====== searchBar ====== */
 
   .searchBar {
+    background-color: var(--color-white);
+    border: 1px solid grey;
+    border-radius: 5px;
     width: 100%;
   }
-
-  /* ======== main ========= */
-
-  /* ==== create recipe ==== */
 
   .searchBar input {
     width: 45%;
@@ -73,7 +96,13 @@ body {
     overflow-y: auto;
   }
 
-  /* ==== recipe cards ===== */
+  /* ===== recipe card ===== */
+
+  .showOneRecipe {
+    background-color: var(--color-white);
+    border: 1px solid grey;
+    border-radius: 5px;
+  }
 
   .flexAlign {
     display: flex;
@@ -94,16 +123,38 @@ body {
     width: 100%;
   }
 
+  /* ===== recipe list ===== */
+
+  .showAllRecipes {
+    background-color: var(--color-white);
+    border: 1px solid grey;
+    border-radius: 5px;
+  }
+
+  .edit-delete {
+    width: 25%;
+  }
+
+  nav li {
+    margin-right: 5px;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 16px;
+  }
+
 /* ==========================
 | | Browser View
 ========================== */
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 750px) {
 
   /* ==== header & nav ===== */
 
   h1 {
     font-size: 3em;
+    margin: 2% 0 2% 5%;
   }
 
   nav {
@@ -112,12 +163,68 @@ body {
     align-items: center;
   }
 
-  a {
+  nav a {
     font-size: 2em;
+  }
+
+  .userForms input {
+    height: 20px;
+    width: 20%;
+    margin: 5px 0;
+    font-size: 14px;
   }
 
   /* ======== main ========= */
 
+  main {
+    width: 98%;
+    margin: 0 auto;
+    margin-top: 2%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .searchBar {
+    /* background-image: url("/images/rezel-apacionado-unsplash.jpg");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover; */
+    width: 22%;
+  }
+
+  .showOneRecipe {
+    width: 45%;
+    order: 1;
+  }
+
+  .showAllRecipes {
+    width: 30%;
+  }
+
+  /* ====== searchBar ====== */
+
+  .searchBar input {
+    width: 95%;
+    height: 30px;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  .searchBar textarea {
+    resize: none;
+    width: 95%;
+    height: 10vh;
+    overflow-y: auto;
+  }
+
   /* ==== recipe cards ===== */
+
+  /* ===== recipe list ===== */
+
+  a {
+    text-decoration: none;
+    font-size: 16px;
+  }
+
 
 }
