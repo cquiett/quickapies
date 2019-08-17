@@ -76,7 +76,7 @@ app.controller("MainController", ["$http", function($http) {
   const controller = this;
   this.currentRecipe = null;
   this.currentRecipeShow = false;
-  this.indexOfEditForm = false
+  this.indexOfEditForm = false;
 
   this.getRecipes = function () {
     $http({
@@ -155,6 +155,7 @@ app.controller("MainController", ["$http", function($http) {
   this.saveOne = function (recipe) {
     this.currentRecipe = recipe;
     this.currentRecipeShow = true;
+    this.indexOfEditForm = false;
   }
 
   this.getRecipes();
