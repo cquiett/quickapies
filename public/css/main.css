@@ -386,14 +386,14 @@ input:focus, textarea:focus {
 
   .searchBar {
     width: 22%;
-    height: 650px;
+    height: 75vh;
     border-radius: 5px;
     overflow-y: auto;
   }
 
   .showOneRecipe {
     width: 45%;
-    height: 650px;
+    height: 75vh;
     border-radius: 5px;
     overflow-y: auto;
     order: 1;
@@ -401,7 +401,7 @@ input:focus, textarea:focus {
 
   .showAllRecipes {
     width: 30%;
-    height: 650px;
+    height: 75vh;
     border-radius: 5px;
     overflow-y: auto;
   }
