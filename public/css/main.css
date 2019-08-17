@@ -73,6 +73,7 @@ input:focus, textarea:focus {
 
   nav a:hover {
     color: var(--color-lightblue);
+    cursor: pointer;
   }
 
   /* ===== log in form ===== */
@@ -220,6 +221,7 @@ input:focus, textarea:focus {
   .ingredients {
     align-self: flex-start;
     width: 55%;
+    white-space: pre-line;
   }
 
   .showOneRecipe input {
@@ -280,6 +282,11 @@ input:focus, textarea:focus {
   .showAllRecipes ul {
     margin: 2%;
     font-size: 1.2em;
+  }
+
+  .clickme:hover {
+    cursor: pointer;
+    color: var(--color-lightblue);
   }
 
 /* ==========================

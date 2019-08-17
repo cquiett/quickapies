@@ -51,6 +51,7 @@ app.controller('AuthController', ['$http', function($http){
           }).then((response) => {
               console.log(response.data);
               this.loggedInUser = null;
+              this.loggedInUserId = null;
           }, (error) => {
               console.log(error);
           })
@@ -62,6 +63,7 @@ app.controller('AuthController', ['$http', function($http){
               url: '/loggedin'
         }).then((response) => {
             this.loggedInUser = response.data.username
+            this.loggedInUserId = response.data._id
             console.log('GOT EDITING RIGHTS');
         }, (error) => {
             console.log(error.data);
@@ -74,7 +76,7 @@ app.controller("MainController", ["$http", function($http) {
   const controller = this;
   this.currentRecipe = null;
   this.currentRecipeShow = false;
-  this.indexOfEditForm = false;
+  this.indexOfEditForm = false
 
   this.getRecipes = function () {
     $http({
@@ -87,7 +89,7 @@ app.controller("MainController", ["$http", function($http) {
     });
   };
 
-  this.createRecipe = function () {
+  this.createRecipe = function (user) {
     $http({
       method: "POST",
       url: "/recipes",
@@ -98,7 +100,8 @@ app.controller("MainController", ["$http", function($http) {
         cookTime: this.cookTime,
         numOfServ: this.numOfServ,
         instructions: this.instructions,
-        tags: this.tags
+        tags: this.tags,
+        userId: user
       }
     }).then(function(response) {
       controller.name = null;
