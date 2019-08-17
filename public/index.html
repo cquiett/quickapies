@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr" ng-app="QuickapieApp">
   <head>
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" charset="utf-8">
     <title></title>
     <!-- =====================
     | | Scripts
@@ -38,9 +38,9 @@
         <div class="userForms">
           <form ng-if="auth.showNewForm"
                 ng-submit="auth.createUser()">
-            <input type="text" placeholder="Create Username" ng-model="auth.createdUsername"/>
-            <input type="password" placeholder="Create Password" ng-model="auth.createdPassword">
-            <input type="submit" name="" value="Create User">
+            <input type="text" placeholder="username" ng-model="auth.createdUsername"/>
+            <input type="password" placeholder="password" ng-model="auth.createdPassword">
+            <input type="submit" name="" value="Create">
           </form>
           <form ng-if="auth.showLogInForm"
                 ng-submit="auth.logIn()">
@@ -55,7 +55,7 @@
             <div ng-if="auth.loggedInUser">
               <h2>Welcome, {{ auth.loggedInUser }}</h2>
             </div>
-            <div class="searchBar">
+            <div>
               <input type="text" placeholder="keyword" ng-model="searchBox[searchBy]" />
             </div>
             <div class="filters">
@@ -75,10 +75,10 @@
                 <fieldset>
                   <legend>Add a Recipe</legend>
                   <input type="text" placeholder="name" ng-model="ctrl.name" />
-                  <input type="text" placeholder="image" ng-model="ctrl.image" />
+                  <input type="text" placeholder="http://" ng-model="ctrl.image" />
                   <input type="text" placeholder="ingredients" ng-model="ctrl.ingredients" />
-                  <input type="text" placeholder="cookTime" ng-model="ctrl.cookTime" />
-                  <input type="number" placeholder="numOfServ" ng-model="ctrl.numOfServ" />
+                  <input type="text" placeholder="cook time" ng-model="ctrl.cookTime" />
+                  <input type="number" placeholder="# of servings" ng-model="ctrl.numOfServ" />
                   <input type="text" placeholder="tags" ng-model="ctrl.tags" />
                 </fieldset>
                 <fieldset>
@@ -117,6 +117,8 @@
               <h5 ng-click="ctrl.currentRecipeShow = false"><a href="#">Close Recipe</a></h5>
             </div>
           </div>
+          <div ng-if="!ctrl.currentRecipeShow" class="showOneRecipe">
+          </div>
           <!-- ========== SHOW ALL RECIPES ============== -->
           <div class="showAllRecipes">
             <div ng-repeat="recipe in ctrl.recipes | filter: searchBox">
@@ -124,7 +126,7 @@
                 <div>
                   <h3 ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</h3>
                 </div>
-                <div>
+                <div class="edit-delete">
                   <ul>
                     <li ng-click="ctrl.deleteRecipe(recipe)"
                         ng-if="auth.loggedInUser"
