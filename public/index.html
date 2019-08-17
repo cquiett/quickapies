@@ -11,7 +11,7 @@
     <!-- =====================
     | | Stylesheets
     ====================== -->
-    <link href="https://fonts.googleapis.com/css?family=Pacifico|Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Quicksand|Roboto:500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body ng-controller="MainController as ctrl">
@@ -68,8 +68,7 @@
               Exclude Keyword: <input type="radio" name="order" value="noKeyword" ng-model="filter" id="noKeyword" /> -->
             </div>
             <!-- ========== ADD NEW RECIPE ============== -->
-            <!-- <div class="formAlign" ng-if="auth.loggedInUser"> -->
-            <div class="formAlign">
+            <div class="formAlign" ng-if="auth.loggedInUser">
               <form ng-submit="ctrl.createRecipe()">
                 <fieldset>
                   <legend>Add a Recipe</legend>
@@ -93,29 +92,32 @@
           </div>
           <!-- ========== SHOW ONE RECIPES ============== -->
           <div ng-if="ctrl.currentRecipeShow" class="showOneRecipe">
-            <div class="flexAlign">
-              <div>
-                <h2>{{ctrl.currentRecipe.name}}</h2>
+            <div class="widthAlign">
+              <div class="flexAlign">
+                <div>
+                  <h2>{{ctrl.currentRecipe.name}}</h2>
+                </div>
+                <div>
+                  <h4><span class="cardTitle">Cook Time:</span> {{ctrl.currentRecipe.cookTime}}</h4>
+                  <h4><span class="cardTitle">Servings:</span> {{ctrl.currentRecipe.numOfServ}}</h4>
+                </div>
+              </div>
+              <div class="flexAlign">
+                <div class="recipeImage">
+                  <img ng-src="{{ctrl.currentRecipe.image}}" alt="recipe image">
+                </div>
+                <div class="ingredients">
+                  <h4 class="cardTitle">Ingredients</h4>
+                  <h4>{{ctrl.currentRecipe.ingredients}}</h4>
+                </div>
               </div>
               <div>
-                <h4>Cook Time: {{ctrl.currentRecipe.cookTime}}</h4>
-                <h4>Servings: {{ctrl.currentRecipe.numOfServ}}</h4>
+                <p>{{ctrl.currentRecipe.instructions}}</p>
               </div>
-            </div>
-            <div class="flexAlign">
-              <div class="recipeImage">
-                <img ng-src="{{ctrl.currentRecipe.image}}" alt="recipe image">
+              <div class="rightAlign">
+                <h5><span class="cardTitle">Tags:</span> {{ctrl.currentRecipe.tags}}</h5>
+                <h5 ng-click="ctrl.currentRecipeShow = false"><a href="#">Close Recipe</a></h5>
               </div>
-              <div>
-                <h4>{{ctrl.currentRecipe.ingredients}}</h4>
-              </div>
-            </div>
-            <div>
-              <p>{{ctrl.currentRecipe.instructions}}</p>
-            </div>
-            <div>
-              <h5>{{ctrl.currentRecipe.tags}}</h5>
-              <h5 ng-click="ctrl.currentRecipeShow = false"><a href="#">Close Recipe</a></h5>
             </div>
           </div>
           <div ng-if="!ctrl.currentRecipeShow" class="showOneRecipe">

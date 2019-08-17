@@ -1,6 +1,7 @@
 :root {
   --font-headers: 'Pacifico', cursive;
   --font-text: 'Quicksand', sans-serif;
+  --font-bold: 'Roboto', sans-serif;
   --color-lightbrown: #F2B76B;
   --color-darkbrown: #694312;
   --color-white: #F0DCC2;
@@ -19,6 +20,7 @@ body {
 input:focus, textarea:focus {
   outline: none;
 }
+
 /* ==========================
 | | Mobile View
 ========================== */
@@ -73,6 +75,8 @@ input:focus, textarea:focus {
     color: var(--color-lightblue);
   }
 
+  /* ===== log in form ===== */
+
   .userForms {
     text-align: center;
     background-color: var(--color-darkbrown);
@@ -85,23 +89,28 @@ input:focus, textarea:focus {
     margin: 5px 0;
   }
 
-.userForms input[type=submit] {
-      color: var(--color-black);
-      background-color: var(--color-lightblue);
-      border:1px solid var(--color-black);
-      border-radius: 5px;
-      width: 22%;
-  }
+  .userForms input[type=submit] {
+        color: var(--color-black);
+        background-color: var(--color-lightblue);
+        border:1px solid var(--color-black);
+        border-radius: 5px;
+        width: 22%;
+    }
 
-.userForms input[type=submit]:hover {
-      background-color: var(--color-darkblue);
-      color: var(--color-white);
-}
+  .userForms input[type=submit]:hover {
+        background-color: var(--color-darkblue);
+        color: var(--color-white);
+  }
   /* ====== searchBar ====== */
 
   .centerAlign {
     text-align: center;
     padding: 5px 0;
+  }
+
+  .formAlign {
+    width: 95%;
+    margin: 0 auto;
   }
 
   .searchBar {
@@ -122,11 +131,6 @@ input:focus, textarea:focus {
     color: var(--color-darkbrown);
     margin: 5px 0;
     text-align: center;
-  }
-
-  .formAlign {
-    width: 95%;
-    margin: 0 auto;
   }
 
   .searchBar input {
@@ -176,13 +180,36 @@ input:focus, textarea:focus {
     align-items: center;
   }
 
-  h2 {
+  .widthAlign {
+    margin: 0 auto;
+    width: 96%;
+  }
+
+  .rightAlign {
+    text-align: right;
+  }
+
+  .showOneRecipe h2 {
     font-size: 2em;
     font-family: var(--font-headers);
+    margin-left: 10px;
+  }
+
+  .showOneRecipe h4 {
+    margin: 0;
+  }
+
+  .cardTitle {
+    font-family: var(--font-bold);
+  }
+
+  .ingredients {
+    align-self: flex-start;
+    width: 55%;
   }
 
   .recipeImage {
-    width: 30%;
+    width: 40%;
   }
 
   .recipeImage img {
