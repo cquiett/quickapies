@@ -74,7 +74,7 @@ app.controller("MainController", ["$http", function($http) {
   const controller = this;
   this.currentRecipe = null;
   this.currentRecipeShow = false;
-  this.indexOfEditForm = null;
+  this.indexOfEditForm = false;
 
   this.getRecipes = function () {
     $http({
@@ -101,13 +101,13 @@ app.controller("MainController", ["$http", function($http) {
         tags: this.tags
       }
     }).then(function(response) {
-      // controller.name = null;
-      // controller.image = null;
-      // controller.ingredients = null;
-      // controller.cookTime = null;
-      // controller.numOfServ = null;
-      // controller.instructions = null;
-      // controller.tags = null;
+      controller.name = null;
+      controller.image = null;
+      controller.ingredients = null;
+      controller.cookTime = null;
+      controller.numOfServ = null;
+      controller.instructions = null;
+      controller.tags = null;
       controller.getRecipes();
     }, function(error) {
       console.log(error);
@@ -129,7 +129,8 @@ app.controller("MainController", ["$http", function($http) {
       }
     }).then(function(response) {
       console.log(response.data);
-      controller.indexOfEditForm = null;
+      controller.indexOfEditForm = !controller.indexOfEditForm;
+      controller.saveOne(response.data);
       controller.getRecipes();
     }, function(error) {
       console.log(error);
@@ -141,6 +142,7 @@ app.controller("MainController", ["$http", function($http) {
       method: "DELETE",
       url: "/recipes/" + recipe._id
     }).then(function(response) {
+      controller.currentRecipeShow = false;
       controller.getRecipes();
     }, function(error) {
       console.log(error);

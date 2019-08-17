@@ -166,6 +166,20 @@ input:focus, textarea:focus {
     font-size: 20px;
   }
 
+  .edit-delete {
+    text-align: right;
+  }
+
+  .edit-delete li {
+    display: inline;
+    margin-right: 5px;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 16px;
+  }
+
   /* ===== recipe card ===== */
 
   .showOneRecipe {
@@ -222,19 +236,6 @@ input:focus, textarea:focus {
     background-color: var(--color-white);
     border: 1px solid grey;
     border-radius: 5px;
-  }
-
-  .edit-delete {
-    width: 25%;
-  }
-
-  nav li {
-    margin-right: 5px;
-  }
-
-  a {
-    text-decoration: none;
-    font-size: 16px;
   }
 
 /* ==========================
