@@ -177,13 +177,9 @@
           </div>
           <!-- ========== SHOW ALL RECIPES ============== -->
           <div class="showAllRecipes">
-            <div ng-repeat="recipe in ctrl.recipes | filter: searchBox">
-              <div class="flexAlign">
-                <div>
-                  <h3 ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</h3>
-                </div>
-              </div>
-            </div>
+            <ul ng-repeat="recipe in ctrl.recipes | filter: searchBox">
+              <li ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</li>
+            </ul>
           </div>
         </main>
       </div>

@@ -238,6 +238,11 @@ input:focus, textarea:focus {
     border-radius: 5px;
   }
 
+  .showAllRecipes ul {
+    margin: 2%;
+    font-size: 1.2em;
+  }
+
 /* ==========================
 | | Browser View
 ========================== */
@@ -281,20 +286,22 @@ input:focus, textarea:focus {
   }
 
   .searchBar {
-    /* background-image: url("/images/rezel-apacionado-unsplash.jpg");
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover; */
     width: 22%;
+    height: 600px;
+    overflow-y: auto;
   }
 
   .showOneRecipe {
     width: 45%;
+    height: 600px;
+    overflow-y: auto;
     order: 1;
   }
 
   .showAllRecipes {
     width: 30%;
+    height: 600px;
+    overflow-y: auto;
   }
 
   /* ====== searchBar ====== */
