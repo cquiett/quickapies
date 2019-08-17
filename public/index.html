@@ -69,7 +69,7 @@
             </div>
             <!-- ========== ADD NEW RECIPE ============== -->
             <div class="formAlign" ng-if="auth.loggedInUser">
-              <form ng-submit="ctrl.createRecipe()">
+              <form ng-submit="ctrl.createRecipe(auth.loggedInUserId)">
                 <fieldset>
                   <legend>Add a Recipe</legend>
                   <input type="text" placeholder="name" ng-model="ctrl.name" />
@@ -119,10 +119,9 @@
                 <h5 ng-click="ctrl.currentRecipeShow = false"><a href="#">Close Recipe</a></h5>
                 <div class="edit-delete">
                   <ul>
-                    <li ng-click="ctrl.indexOfEditForm = !ctrl.indexOfEditForm">Edit</li>
-                    <!-- <li ng-click="ctrl.indexOfEditForm = !ctrl.indexOfEditForm"
+                    <li ng-click="ctrl.indexOfEditForm = !ctrl.indexOfEditForm"
                         ng-if="auth.loggedInUser"
-                    ><a href="#">Edit</a></li> -->
+                    ><a href="#">Edit</a></li>
                     <li ng-click="ctrl.deleteRecipe(ctrl.currentRecipe)"
                         ng-if="auth.loggedInUser"
                     ><a href="#">Delete</a></li>

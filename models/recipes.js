@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 
 const recipeSchema = new mongoose.Schema({
-  name: String,
+  name: {type: String, require: true},
   image: String,
   ingredients: String,
   cookTime: String,
   numOfServ: Number,
   instructions: String,
-  tags: String
+  tags: String,
+  userId: String
 });
 
 const Recipes = mongoose.model('Recipe', recipeSchema);
