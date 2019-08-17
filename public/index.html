@@ -120,10 +120,10 @@
                 <div class="edit-delete">
                   <ul>
                     <li ng-click="ctrl.indexOfEditForm = !ctrl.indexOfEditForm"
-                        ng-if="auth.loggedInUser"
+                        ng-if="ctrl.currentRecipe.userId === auth.loggedInUserId"
                     ><a href="#">Edit</a></li>
                     <li ng-click="ctrl.deleteRecipe(ctrl.currentRecipe)"
-                        ng-if="auth.loggedInUser"
+                        ng-if="ctrl.currentRecipe.userId === auth.loggedInUserId"
                     ><a href="#">Delete</a></li>
                   </ul>
                 </div>
@@ -196,7 +196,7 @@
           <!-- ========== SHOW ALL RECIPES ============== -->
           <div class="showAllRecipes">
             <ul ng-repeat="recipe in ctrl.recipes | filter: searchBox">
-              <li ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</li>
+              <li class="clickme" ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</li>
             </ul>
           </div>
         </main>
