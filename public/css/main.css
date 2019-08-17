@@ -73,6 +73,7 @@ input:focus, textarea:focus {
 
   nav a:hover {
     color: var(--color-lightblue);
+    cursor: pointer;
   }
 
   /* ===== log in form ===== */
@@ -126,7 +127,7 @@ input:focus, textarea:focus {
     color: var(--color-white);
   }
 
-  .searchBar fieldset {
+  fieldset {
     border-radius: 5px;
     color: var(--color-darkbrown);
     margin: 5px 0;
@@ -220,6 +221,46 @@ input:focus, textarea:focus {
   .ingredients {
     align-self: flex-start;
     width: 55%;
+    white-space: pre-line;
+  }
+
+  .showOneRecipe input {
+    display: block;
+    width: 96%;
+    height: 26px;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .showOneRecipe textarea {
+    resize: none;
+    width: 96%;
+    height: 10vh;
+    overflow-y: auto;
+    font-size: 16px;
+  }
+
+  .showOneRecipe fieldset {
+    text-align: left;
+  }
+
+  .showOneRecipe legend {
+    padding: 0 10px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .showOneRecipe input[type=submit] {
+    color: var(--color-black);
+    background-color: var(--color-lightblue);
+    border:1px solid var(--color-black);
+    border-radius: 5px;
+    margin-left: 2%;
+  }
+
+  .showOneRecipe input[type=submit]:hover {
+    background-color: var(--color-darkblue);
+    color: var(--color-white);
   }
 
   .recipeImage {
@@ -236,6 +277,16 @@ input:focus, textarea:focus {
     background-color: var(--color-white);
     border: 1px solid grey;
     border-radius: 5px;
+  }
+
+  .showAllRecipes ul {
+    margin: 2%;
+    font-size: 1.2em;
+  }
+
+  .clickme:hover {
+    cursor: pointer;
+    color: var(--color-lightblue);
   }
 
 /* ==========================
@@ -281,20 +332,22 @@ input:focus, textarea:focus {
   }
 
   .searchBar {
-    /* background-image: url("/images/rezel-apacionado-unsplash.jpg");
-    background-position: bottom;
-    background-repeat: no-repeat;
-    background-size: cover; */
     width: 22%;
+    height: 650px;
+    overflow-y: auto;
   }
 
   .showOneRecipe {
     width: 45%;
+    height: 650px;
+    overflow-y: auto;
     order: 1;
   }
 
   .showAllRecipes {
     width: 30%;
+    height: 650px;
+    overflow-y: auto;
   }
 
   /* ====== searchBar ====== */

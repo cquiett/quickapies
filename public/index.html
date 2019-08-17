@@ -69,7 +69,7 @@
             </div>
             <!-- ========== ADD NEW RECIPE ============== -->
             <div class="formAlign" ng-if="auth.loggedInUser">
-              <form ng-submit="ctrl.createRecipe()">
+              <form ng-submit="ctrl.createRecipe(auth.loggedInUserId)">
                 <fieldset>
                   <legend>Add a Recipe</legend>
                   <input type="text" placeholder="name" ng-model="ctrl.name" />
@@ -120,10 +120,10 @@
                 <div class="edit-delete">
                   <ul>
                     <li ng-click="ctrl.indexOfEditForm = !ctrl.indexOfEditForm"
-                        ng-if="auth.loggedInUser"
+                        ng-if="ctrl.currentRecipe.userId === auth.loggedInUserId"
                     ><a href="#">Edit</a></li>
                     <li ng-click="ctrl.deleteRecipe(ctrl.currentRecipe)"
-                        ng-if="auth.loggedInUser"
+                        ng-if="ctrl.currentRecipe.userId === auth.loggedInUserId"
                     ><a href="#">Delete</a></li>
                   </ul>
                 </div>
@@ -131,42 +131,60 @@
               <div>
                 <form ng-if="ctrl.indexOfEditForm" ng-submit="ctrl.editRecipe(ctrl.currentRecipe)">
                   <fieldset>
-                  <input  type="text"
-                          placeholder="name"
-                          ng-value="ctrl.currentRecipe.name"
-                          ng-model="ctrl.updatedName"
-                  />
-                  <input  type="text"
-                          placeholder="image"
-                          ng-value="ctrl.currentRecipe.image"
-                          ng-model="ctrl.updatedImage"
-                  />
-                  <input  type="text"
-                          placeholder="ingredients"
-                          ng-value="ctrl.currentRecipe.ingredients"
-                          ng-model="ctrl.updatedIngredients"
-                  />
-                  <input  type="text"
-                          placeholder="cookTime"
-                          ng-value="ctrl.currentRecipe.cookTime"
-                          ng-model="ctrl.updatedCookTime"
-                  />
-                  <input  type="text"
-                          placeholder="numOfServ"
-                          ng-value="ctrl.currentRecipe.numOfServ"
-                          ng-model="ctrl.updatedNumOfServ"
-                  />
-                  <textarea  type="text"
-                          placeholder="instructions"
-                          ng-value="ctrl.currentRecipe.instructions"
-                          ng-model="ctrl.updatedInstructions">
-                          {{recipe.instructions}}
-                  </textarea>
-                  <input  type="text"
-                          placeholder="tags"
-                          ng-value="ctrl.currentRecipe.tags"
-                          ng-model="ctrl.updatedTags"
-                  />
+                    <legend>Edit Your Recipe</legend>
+                    <label for="name">Name:</label>
+                    <input  type="text"
+                            id="name"
+                            placeholder="name"
+                            ng-value="ctrl.currentRecipe.name"
+                            ng-model="ctrl.updatedName"
+                    />
+                    <label for="image">Image:</label>
+                    <input  type="text"
+                            id="image"
+                            placeholder="http://"
+                            ng-value="ctrl.currentRecipe.image"
+                            ng-model="ctrl.updatedImage"
+                    />
+                    <label for="ingredients">Ingredients:</label>
+                    <input  type="text"
+                            id="ingredients"
+                            placeholder="ingredients"
+                            ng-value="ctrl.currentRecipe.ingredients"
+                            ng-model="ctrl.updatedIngredients"
+                    />
+                    <label for="cook-time">Cook Time:</label>
+                    <input  type="text"
+                            id="cook-time"
+                            placeholder="15 min."
+                            ng-value="ctrl.currentRecipe.cookTime"
+                            ng-model="ctrl.updatedCookTime"
+                    />
+                    <label for="num-of-serv">Number of Servings:</label>
+                    <input  type="text"
+                            id="num-of-serv"
+                            placeholder="# of servings"
+                            ng-value="ctrl.currentRecipe.numOfServ"
+                            ng-model="ctrl.updatedNumOfServ"
+                    />
+                    <label for="tags">Tags:</label>
+                    <input  type="text"
+                            id="tags"
+                            placeholder="tags"
+                            ng-value="ctrl.currentRecipe.tags"
+                            ng-model="ctrl.updatedTags"
+                    />
+                  </fieldset>
+                  <fieldset>
+                    <legend>Instructions</legend>
+                    <label for="instructions">Instructions:</label>
+                    <textarea  type="text"
+                            id="instructions"
+                            placeholder="instructions"
+                            ng-value="ctrl.currentRecipe.instructions"
+                            ng-model="ctrl.updatedInstructions">
+                            {{recipe.instructions}}
+                    </textarea>
                   </fieldset>
                   <input type="submit" value="Edit Recipe">
                 </form>
@@ -177,13 +195,9 @@
           </div>
           <!-- ========== SHOW ALL RECIPES ============== -->
           <div class="showAllRecipes">
-            <div ng-repeat="recipe in ctrl.recipes | filter: searchBox">
-              <div class="flexAlign">
-                <div>
-                  <h3 ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</h3>
-                </div>
-              </div>
-            </div>
+            <ul ng-repeat="recipe in ctrl.recipes | filter: searchBox">
+              <li class="clickme" ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</li>
+            </ul>
           </div>
         </main>
       </div>
