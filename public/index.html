@@ -16,7 +16,7 @@
   </head>
   <body ng-controller="MainController as ctrl">
     <div ng-controller="AuthController as auth">
-      <div ng-controller="searchController as search">
+      <div ng-controller="SearchController as search">
         <nav>
           <div>
             <h1>Quickapies</h1>
@@ -53,12 +53,10 @@
           <!-- ========== SEARCH BAR ============== -->
           <div class="searchBar">
             <div ng-if="auth.loggedInUser">
-              <h2>Welcome, {{ auth.loggedInUser }}</h2>
+              <h3>Welcome, {{ auth.loggedInUser }}</h3>
             </div>
-            <div>
-              <input type="text" placeholder="keyword" ng-model="searchBox[searchBy]" />
-            </div>
-            <div class="filters">
+            <div class="centerAlign">
+              <input type="text" placeholder="keyword" ng-model="searchBox[searchBy]" /><br />
               <select ng-model="searchBy">
                 <option value="$"></option>
                 <option value="name">NAME</option>
@@ -70,7 +68,8 @@
               Exclude Keyword: <input type="radio" name="order" value="noKeyword" ng-model="filter" id="noKeyword" /> -->
             </div>
             <!-- ========== ADD NEW RECIPE ============== -->
-            <div ng-if="auth.loggedInUser">
+            <!-- <div class="formAlign" ng-if="auth.loggedInUser"> -->
+            <div class="formAlign">
               <form ng-submit="ctrl.createRecipe()">
                 <fieldset>
                   <legend>Add a Recipe</legend>
@@ -82,11 +81,13 @@
                   <input type="text" placeholder="tags" ng-model="ctrl.tags" />
                 </fieldset>
                 <fieldset>
-                  <textarea type="text" placeholder="instructions" ng-model="ctrl.instructions">
-                    instructions
+                  <legend>Instructions</legend>
+                  <textarea type="text" placeholder="1. Boil water" ng-model="ctrl.instructions">
                   </textarea>
                 </fieldset>
-                <input type="submit" value="Add Recipe">
+                <div class="centerAlign">
+                  <input type="submit" value="Add Recipe">
+                </div>
               </form>
             </div>
           </div>

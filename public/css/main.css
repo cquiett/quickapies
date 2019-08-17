@@ -9,22 +9,16 @@
   --color-black: #1B1817;
 }
 
-/* * {
-  border: 1px solid gold;
-} */
-
 body {
   font-family: var(--font-text);
   background-color: var(--color-lightbrown);
-  color: var(--color-darkbrown);
-	text-shadow:
-	-1px -1px 0 ghostwhite,
-	1px -1px 0 ghostwhite,
-	-1px 1px 0 ghostwhite,
-	1px 1px 0 ghostwhite;
+  color: var(--color-black);
   margin: 0;
 }
 
+input:focus, textarea:focus {
+  outline: none;
+}
 /* ==========================
 | | Mobile View
 ========================== */
@@ -34,7 +28,13 @@ body {
   h1 {
     font-family: var(--font-headers);
     font-size: 4em;
+    text-shadow:
+  	-1px -1px 0 ghostwhite,
+  	1px -1px 0 ghostwhite,
+  	-1px 1px 0 ghostwhite,
+  	1px 1px 0 ghostwhite;
     margin: 0;
+    color: var(--color-darkbrown);
   }
 
   nav {
@@ -61,6 +61,16 @@ body {
   nav a {
     text-decoration: none;
     font-size: 2em;
+    color: ghostwhite;
+    text-shadow:
+  	-1px -1px 0 var(--color-darkbrown),
+  	1px -1px 0 var(--color-darkbrown),
+  	-1px 1px 0 var(--color-darkbrown),
+  	1px 1px 0 var(--color-darkbrown);
+  }
+
+  nav a:hover {
+    color: var(--color-lightblue);
   }
 
   .userForms {
@@ -72,9 +82,27 @@ body {
     height: 50px;
     width: 30%;
     font-size: 30px;
+    margin: 5px 0;
   }
 
+.userForms input[type=submit] {
+      color: var(--color-black);
+      background-color: var(--color-lightblue);
+      border:1px solid var(--color-black);
+      border-radius: 5px;
+      width: 22%;
+  }
+
+.userForms input[type=submit]:hover {
+      background-color: var(--color-darkblue);
+      color: var(--color-white);
+}
   /* ====== searchBar ====== */
+
+  .centerAlign {
+    text-align: center;
+    padding: 5px 0;
+  }
 
   .searchBar {
     background-color: var(--color-white);
@@ -83,17 +111,55 @@ body {
     width: 100%;
   }
 
+  .searchBar h3 {
+    text-align: center;
+    background-color: var(--color-darkbrown);
+    color: var(--color-white);
+  }
+
+  .searchBar fieldset {
+    border-radius: 5px;
+    color: var(--color-darkbrown);
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  .formAlign {
+    width: 95%;
+    margin: 0 auto;
+  }
+
   .searchBar input {
     width: 45%;
     height: 30px;
-    font-size: 24px;
+    font-size: 20px;
+  }
+
+  .searchBar input[type=submit] {
+    color: var(--color-black);
+    background-color: var(--color-lightblue);
+    border:1px solid var(--color-black);
+    border-radius: 5px;
+  }
+
+  .searchBar input[type=submit]:hover {
+        background-color: var(--color-darkblue);
+        color: var(--color-white);
   }
 
   .searchBar textarea {
     resize: none;
-    width: 85vw;
+    width: 92%;
     height: 7vh;
     overflow-y: auto;
+    font-size: 20px;
+  }
+
+  select {
+    margin-top: 5px;
+    width: 45%;
+    height: 30px;
+    font-size: 20px;
   }
 
   /* ===== recipe card ===== */
@@ -170,10 +236,12 @@ body {
   .userForms input {
     height: 20px;
     width: 20%;
-    margin: 5px 0;
     font-size: 14px;
   }
 
+  .userForms input[type=submit] {
+    width: 10%;
+  }
   /* ======== main ========= */
 
   main {
@@ -215,6 +283,12 @@ body {
     width: 95%;
     height: 10vh;
     overflow-y: auto;
+  }
+
+  select {
+    width: 95%;
+    height: 30px;
+    font-size: 14px;
   }
 
   /* ==== recipe cards ===== */
