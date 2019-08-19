@@ -78,6 +78,12 @@ app.controller("MainController", ["$http", function($http) {
   this.currentRecipeShow = false;
   this.indexOfEditForm = false;
 
+  this.includePath = 'partials/app.html'
+
+  this.changeInclude = (path) => {
+    this.includePath = 'partials/' + path + '.html'
+  }
+
   this.getRecipes = function () {
     $http({
       method: "GET",
