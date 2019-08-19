@@ -117,7 +117,7 @@ input:focus, textarea:focus {
   .searchBar {
     background-color: var(--color-white);
     border: 1px solid grey;
-    border-radius: 5px;
+    border-top: 3px solid var(--color-darkbrown);
     width: 100%;
   }
 
@@ -176,23 +176,19 @@ input:focus, textarea:focus {
     margin-right: 5px;
   }
 
-  a {
-    text-decoration: none;
-    font-size: 16px;
-  }
-
   /* ===== recipe card ===== */
 
   .showOneRecipe {
     background-color: var(--color-white);
     border: 1px solid grey;
-    border-radius: 5px;
+    border-top: 3px solid var(--color-darkbrown);
   }
 
   .flexAlign {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 1%;
   }
 
   .widthAlign {
@@ -271,22 +267,122 @@ input:focus, textarea:focus {
     width: 100%;
   }
 
+  .close-recipe {
+    text-align: right;
+  }
+
+  .close-recipe h6 {
+    margin: 0 20px;
+  }
+
+  .showOneRecipe a {
+    text-decoration: none;
+    font-size: 16px;
+    color: var(--color-black);
+  }
+
+  .showOneRecipe a:hover {
+    color: var(--color-lightblue);
+  }
+
+  .showOneRecipe a:visited {
+    color: var(--color-black);
+  }
+
+  .showOneRecipe a:visited:hover {
+    color: var(--color-lightblue);
+  }
+
   /* ===== recipe list ===== */
 
   .showAllRecipes {
     background-color: var(--color-white);
     border: 1px solid grey;
-    border-radius: 5px;
-  }
-
-  .showAllRecipes ul {
-    margin: 2%;
-    font-size: 1.2em;
+    border-top: 3px solid var(--color-darkbrown);
+    margin-bottom: 90px;
   }
 
   .clickme:hover {
     cursor: pointer;
     color: var(--color-lightblue);
+  }
+
+  .my-recipe {
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .my-recipe img {
+    width: 100%;
+  }
+
+  /* ======== footer ======= */
+
+  footer {
+    background-color: var(--color-darkbrown);
+    height: 75px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .social-media {
+    margin-top: 5px;
+    text-align: center;
+    color: var(--color-lightblue);
+  }
+
+  footer li {
+    display: inline;
+    margin: 0 10px;
+  }
+
+  footer a, footer a:visited {
+    text-decoration: none;
+    color: var(--color-lightblue);
+  }
+
+  /* ==== about d devs ===== */
+
+  .devCard {
+    width: 100%;
+    border: 1px solid var(--color-darkbrown);
+    background-color: var(--color-white);
+    border-top: 3px solid var(--color-darkbrown);
+  }
+
+  .devCard a {
+    color: var(--color-darkblue);
+  }
+
+  .devCard a:after {
+    color var(--color-darkblue);
+  }
+
+  .devImage {
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 50%;
+  }
+
+  .devImage img {
+    width: 50%;
+    border-radius: 100px;
+  }
+
+  .devName {
+    margin: 0;
+    padding: 0;
+  }
+
+  .devCard h5 {
+    font-size: 1em;
+  }
+
+  .mobileFlex {
+    margin-bottom: 75px;
   }
 
 /* ==========================
@@ -333,20 +429,23 @@ input:focus, textarea:focus {
 
   .searchBar {
     width: 22%;
-    height: 650px;
+    height: 70vh;
+    border-radius: 5px;
     overflow-y: auto;
   }
 
   .showOneRecipe {
     width: 45%;
-    height: 650px;
+    height: 70vh;
+    border-radius: 5px;
     overflow-y: auto;
     order: 1;
   }
 
   .showAllRecipes {
     width: 30%;
-    height: 650px;
+    height: 70vh;
+    border-radius: 5px;
     overflow-y: auto;
   }
 
@@ -372,8 +471,6 @@ input:focus, textarea:focus {
     font-size: 14px;
   }
 
-  /* ==== recipe cards ===== */
-
   /* ===== recipe list ===== */
 
   a {
@@ -381,5 +478,29 @@ input:focus, textarea:focus {
     font-size: 16px;
   }
 
+  /* ==== about d devs ===== */
+
+  .mobileFlex {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .devCard {
+    width: 29%;
+    border-radius: 5px;
+  }
+
+  .devCard h5 {
+    margin: 5%;
+  }
+
+  .devImage {
+    width: 90%;
+  }
+
+  .devName {
+    margin: 0;
+    padding: 0;
+  }
 
 }
