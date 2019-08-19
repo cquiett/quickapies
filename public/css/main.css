@@ -344,6 +344,47 @@ input:focus, textarea:focus {
     color: var(--color-lightblue);
   }
 
+  /* ==== about d devs ===== */
+
+  .devCard {
+    width: 100%;
+    border: 1px solid var(--color-darkbrown);
+    background-color: var(--color-white);
+    border-top: 3px solid var(--color-darkbrown);
+  }
+
+  .devCard a {
+    color: var(--color-darkblue);
+  }
+
+  .devCard a:after {
+    color var(--color-darkblue);
+  }
+
+  .devImage {
+    margin: 0 auto;
+    margin-top: 5%;
+    width: 50%;
+  }
+
+  .devImage img {
+    width: 50%;
+    border-radius: 100px;
+  }
+
+  .devName {
+    margin: 0;
+    padding: 0;
+  }
+
+  .devCard h5 {
+    font-size: 1em;
+  }
+
+  .mobileFlex {
+    margin-bottom: 75px;
+  }
+
 /* ==========================
 | | Browser View
 ========================== */
@@ -430,8 +471,6 @@ input:focus, textarea:focus {
     font-size: 14px;
   }
 
-  /* ==== recipe cards ===== */
-
   /* ===== recipe list ===== */
 
   a {
@@ -439,5 +478,29 @@ input:focus, textarea:focus {
     font-size: 16px;
   }
 
+  /* ==== about d devs ===== */
+
+  .mobileFlex {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .devCard {
+    width: 29%;
+    border-radius: 5px;
+  }
+
+  .devCard h5 {
+    margin: 5%;
+  }
+
+  .devImage {
+    width: 90%;
+  }
+
+  .devName {
+    margin: 0;
+    padding: 0;
+  }
 
 }
