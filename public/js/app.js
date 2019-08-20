@@ -101,7 +101,7 @@ app.controller("MainController", ["$http", function($http) {
       url: "/recipes",
       data: {
         name: this.name,
-        image: this.image,
+        image: this.image || '/images/image.png',
         ingredients: this.ingredients,
         cookTime: this.cookTime,
         numOfServ: this.numOfServ,
