@@ -101,7 +101,7 @@ app.controller("MainController", ["$http", function($http) {
       url: "/recipes",
       data: {
         name: this.name,
-        image: this.image,
+        image: this.image || '/images/placeholder.png',
         ingredients: this.ingredients,
         cookTime: this.cookTime,
         numOfServ: this.numOfServ,
@@ -163,6 +163,44 @@ app.controller("MainController", ["$http", function($http) {
     this.currentRecipeShow = true;
     this.indexOfEditForm = false;
   }
+
+  this.likeRecipe = function (recipe) {
+    this.currentRecipe = recipe;
+    if (this.currentRecipe.numOfLikes === undefined) {
+      this.currentRecipe.numOfLikes = 1;
+    } else {
+      this.currentRecipe.numOfLikes += 1;
+    };
+    this.saveOne(this.currentRecipe);
+    $http({
+      method: "PUT",
+      url: "/recipes/" + recipe._id,
+      data: this.currentRecipe
+    }).then(function(response) {
+      console.log(response.data);
+    }, function(error) {
+      console.log(error);
+    });
+  };
+
+  this.dislikeRecipe = function (recipe) {
+    this.currentRecipe = recipe;
+    if (this.currentRecipe.numOfDislikes === undefined) {
+      this.currentRecipe.numOfDislikes = -1;
+    } else {
+      this.currentRecipe.numOfDislikes -= 1;
+    };
+    this.saveOne(this.currentRecipe);
+    $http({
+      method: "PUT",
+      url: "/recipes/" + recipe._id,
+      data: this.currentRecipe
+    }).then(function(response) {
+      console.log(response.data);
+    }, function(error) {
+      console.log(error);
+    });
+  };
 
   this.getRecipes();
 
