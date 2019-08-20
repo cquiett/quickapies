@@ -56,7 +56,7 @@ Quickapies is a recipe app which allows a user to search for recipes that take l
 ![Example create_user](./public/images/readme/create_user.png)
 
 * Log In – Click on “Log In” to enter your “username” and “password”.
-![Example user_login](./public/images/readme/anyone_search.png)
+![Example user_login](./public/images/readme/user_login.png)
 
 * After logging in, Quickapies takes you to the “Welcome” screen.
 ![Example logged_in](./public/images/readme/logged_in.png)
