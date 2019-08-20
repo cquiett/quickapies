@@ -8,7 +8,10 @@ const recipeSchema = new mongoose.Schema({
   numOfServ: Number,
   instructions: String,
   tags: String,
-  userId: String
+  userId: String,
+  numOfLikes: Number,
+  numOfDislikes: Number,
+  userVote: [String]
 });
 
 const Recipes = mongoose.model('Recipe', recipeSchema);

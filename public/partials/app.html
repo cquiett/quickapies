@@ -72,6 +72,10 @@
       <h5><span class="cardTitle">Tags:</span> {{ctrl.currentRecipe.tags}}</h5>
       <div class="edit-delete">
         <ul>
+          <li><span>{{ctrl.currentRecipe.numOfLikes}}</span><img class="icon" src="/images/thumb-up.png" alt=""></li>
+          <li><span>{{ctrl.currentRecipe.numOfDislikes}}</span><img class="icon" src="/images/thumb-down.png" alt=""></li>
+        </ul>
+        <ul>
           <li ng-click="ctrl.indexOfEditForm = !ctrl.indexOfEditForm"
               ng-if="ctrl.currentRecipe.userId === auth.loggedInUserId"
           ><a href="#">Edit</a></li>

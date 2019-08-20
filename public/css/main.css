@@ -385,6 +385,11 @@ input:focus, textarea:focus {
     margin-bottom: 75px;
   }
 
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
 /* ==========================
 | | Browser View
 ========================== */
