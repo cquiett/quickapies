@@ -1,18 +1,17 @@
-# quickapies
+# Quickapies
 Search, create and sort through a collection of quick recipes!
 
 Collaborators: Becka Catanzaro, Yulli Chong, Carramah Quiett
 
 
 ## Table Of Contents
-* [Introduction]
-* [Technologies]
-* [Dependencies]
-* [Illustrations]
-* [Scope of Functionalities]
-* [Examples of Use]
-* [Project Status]
-* [Sources]
+* [Introduction](#introduction)
+* [Technologies](#dependencies)
+* [Illustration](#illustration)
+* [Scope of Functionalities](#scope-of-functionalities)
+* [Setup/Examples of Use](#setup/examples-of-use)
+* [Project Status](#project status)
+* [Sources](#sources)
 
 
 ## Introduction
@@ -35,37 +34,41 @@ Quickapies is a recipe app which allows a user to search for recipes that take l
 * dotenv - version 8.0.0
 
 
-## Illustrations
+## Illustration
 ![Algorithm quickapies_app](./images/readme/quickapies_app.png)
 
 ## Scope of Functionalities
-* Create User/Login/Password
-* Only users can add new recipes
-* Only the recipe creator can edit or delete their particular recipe(s)
+* Create User/Login/Password.
+* Only users can add new recipes.
+* Only the recipe creator can edit or delete their particular recipe(s).
 * Anyone can see the list of recipes available in the app.
-* Anyone can search through the recipes in the database and view the recipe card
-* Flexible design – mobile view vs browser view
-* Users can “Like” and “Dislike” the recipes
-* Each recipe provides: ingredients, instructions, image, cook/prep time, tags
+* Anyone can search through the recipes in the database and view the recipe card.
+* Flexible design – mobile view vs browser view.
+* Users can “Like” and “Dislike” the recipes.
+* Each recipe provides: ingredients, instructions, image, cook/prep time, tags.
 
 
 
 ## Setup/Examples of Use
 * Anyone can search for a recipe.
-![Algorithm add_search](./images/readme/anyone_search.png)
+![Algorithm add_search](../images/readme/anyone_search.png)
 
 * If you don’t have an account, create a user – Click on “Create User” to enter a “username” and “password”.
-![Algorithm create_user](./images/readme/create_user.png)
+![Algorithm create_user](../images/readme/create_user.png)
 
 * Log In – Click on “Log In” to enter your “username” and “password”.
-![Algorithm user_login](./images/readme/anyone_search.png)
+![Algorithm user_login](../images/readme/anyone_search.png)
 
 * After logging in, Quickapies takes you to the “Welcome” screen.
-![Algorithm logged_in](./images/readme/logged_in.png)
+![Algorithm logged_in](../images/readme/logged_in.png)
 
 * Logged in user can add, edit, and delete their particular a recipe.
-![Algorithm add_recipe](./images/readme/add_recipe.png)
+![Algorithm add_recipe](../images/readme/add_recipe.png)
 
 * Another example of searching for a recipe
-![Algorithm login_search](./images/readme/login_search.png)
-![Algorithm display_recipe](./images/readme/display_recipe.png)
+![Algorithm login_search](../images/readme/login_search.png)
+![Algorithm display_recipe](../images/readme/display_recipe.png)
+
+## Project Status
+
+##Sources
