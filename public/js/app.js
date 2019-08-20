@@ -77,6 +77,7 @@ app.controller("MainController", ["$http", function($http) {
   this.currentRecipe = null;
   this.currentRecipeShow = false;
   this.indexOfEditForm = false;
+  this.alreadyVoted = false;
 
   this.includePath = 'partials/app.html'
 
@@ -164,13 +165,14 @@ app.controller("MainController", ["$http", function($http) {
     this.indexOfEditForm = false;
   }
 
-  this.likeRecipe = function (recipe) {
+  this.likeRecipe = function (recipe, user) {
     this.currentRecipe = recipe;
     if (this.currentRecipe.numOfLikes === undefined) {
       this.currentRecipe.numOfLikes = 1;
     } else {
       this.currentRecipe.numOfLikes += 1;
-    };
+    }
+    this.currentRecipe.userVote.push(user);
     this.saveOne(this.currentRecipe);
     $http({
       method: "PUT",
@@ -183,23 +185,38 @@ app.controller("MainController", ["$http", function($http) {
     });
   };
 
-  this.dislikeRecipe = function (recipe) {
+  this.dislikeRecipe = function (recipe, user) {
     this.currentRecipe = recipe;
-    if (this.currentRecipe.numOfDislikes === undefined) {
-      this.currentRecipe.numOfDislikes = -1;
-    } else {
-      this.currentRecipe.numOfDislikes -= 1;
-    };
-    this.saveOne(this.currentRecipe);
-    $http({
-      method: "PUT",
-      url: "/recipes/" + recipe._id,
-      data: this.currentRecipe
-    }).then(function(response) {
-      console.log(response.data);
-    }, function(error) {
-      console.log(error);
-    });
+    this.votedUser = user;
+    console.log(recipe);
+    console.log(user);
+    console.log(this.currentRecipe.userVote);
+
+    // for (let i = 0; i < this.currentRecipe.userVote; i++) {
+    //   console.log(this.currentRecipe.userVote[i]);
+    //   if (this.currentRecipe.userVote[i] !== user) {
+    //     console.log('CAN VOTE');
+    //   }
+    // }
+    // if (this.alreadyVoted === false) {
+      if (this.currentRecipe.numOfDislikes === undefined) {
+        this.currentRecipe.numOfDislikes = -1;
+      } else {
+        this.currentRecipe.numOfDislikes -= 1;
+      }
+      this.currentRecipe.userVote.push(user);
+      this.saveOne(this.currentRecipe);
+      $http({
+        method: "PUT",
+        url: "/recipes/" + recipe._id,
+        data: this.currentRecipe
+      }).then(function(response) {
+        console.log(response.data);
+      }, function(error) {
+        console.log(error);
+      });
+    //}
+
   };
 
   this.getRecipes();
