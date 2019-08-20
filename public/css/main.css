@@ -293,6 +293,11 @@ input:focus, textarea:focus {
     color: var(--color-lightblue);
   }
 
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
   /* ===== recipe list ===== */
 
   .showAllRecipes {
@@ -383,11 +388,6 @@ input:focus, textarea:focus {
 
   .mobileFlex {
     margin-bottom: 75px;
-  }
-
-  .icon {
-    width: 30px;
-    height: 30px;
   }
 
 /* ==========================
