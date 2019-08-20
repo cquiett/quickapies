@@ -11,6 +11,7 @@
 * [Examples of Use](#examples-of-use)
 * [Unsolved Problems](#unsolved-problems)
 * [Project Status](#project-status)
+* [Live Link to Site](#live-link-to-site)
 * [References](#references)
 
 ## Introduction
@@ -79,6 +80,9 @@ Goal: When a user who has already clicked "like" or "dislike" clicks on the "lik
 This project is still in progress.
 * Note: improve log in system so that attempting to log in with a username and password that do not match, the user is presented with some sort of notification.
 * Note: improve log in system so that a user attempting to create a username that has already been taken will receive some sort of notification.
+
+## Live Link to Site
+https://quickapies.herokuapp.com/
 
 ## References
 * GA Notes
