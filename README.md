@@ -62,9 +62,22 @@ Quickapies is a recipe app which allows a user to search for recipes that take l
 ![Example logged_in](./public/images/readme/adding_recipe.png)
 ![Example add_recipe](./public/images/readme/recipe_added.png)
 
-* Another example of searching for a recipe
+* Another example of searching for a recipe.
 ![Example login_search](./public/images/readme/loggedin_search.png)
 
 ## Project Status
+While working on this project:
+* We tried to install a free recipe API. However, the free APIs we found did not include recipe instructions in their database.
+* Attempted to install a "Like/Dislike" system.
+
+After submitting this project we plan to:
+* Improve on the login system.
+* Improve our "Like/Dislike" system so we can control how many times a user like or dislike a recipe.
+* Install a recipe API that provides recipe instructions to be displayed with the recipe on our app.
 
 ## Sources
+* Plunker: http://plnkr.co/edit/XklvXtc1AZpndjLvXrh8?p=preview
+- Used for searching the recipes
+* Class Notes
+* BULLDOGJOB: https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project
+- Used for writing our README.md. 
