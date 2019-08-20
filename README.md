@@ -4,7 +4,7 @@
 ## Table Of Contents
 * [Introduction](#introduction)
 * [Collaborators](#collaborators)
-* [Technologies](#dependencies)
+* [Technologies](#technologies)
 * [Dependencies](#dependencies)
 * [Illustration](#illustration)
 * [Scope of Functionalities](#scope-of-functionalities)
