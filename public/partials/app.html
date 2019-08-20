@@ -22,10 +22,13 @@
         <legend>Add a Recipe</legend>
         <input type="text" placeholder="name" ng-model="ctrl.name" />
         <input type="text" placeholder="http://" ng-model="ctrl.image" />
-        <input type="text" placeholder="ingredients" ng-model="ctrl.ingredients" />
         <input type="text" placeholder="cook time" ng-model="ctrl.cookTime" />
         <input type="number" placeholder="# of servings" ng-model="ctrl.numOfServ" />
         <input type="text" placeholder="tags" ng-model="ctrl.tags" />
+      </fieldset>
+      <fieldset>
+        <legend>Ingredients</legend>
+        <textarea type="text" placeholder="1 Cup of water" ng-model="ctrl.ingredients"></textarea>
       </fieldset>
       <fieldset>
         <legend>Instructions</legend>
@@ -59,7 +62,7 @@
       </div>
       <div class="ingredients">
         <h4 class="cardTitle">Ingredients</h4>
-        <h4>{{ctrl.currentRecipe.ingredients}}</h4>
+        <h4 style="white-space: pre-line">{{ctrl.currentRecipe.ingredients}}</h4>
       </div>
     </div>
     <div>
@@ -67,15 +70,37 @@
     </div>
     <div class="rightAlign">
       <h5><span class="cardTitle">Tags:</span> {{ctrl.currentRecipe.tags}}</h5>
-      <div class="edit-delete">
-        <ul>
-          <li ng-click="ctrl.indexOfEditForm = !ctrl.indexOfEditForm"
-              ng-if="ctrl.currentRecipe.userId === auth.loggedInUserId"
-          ><a href="#">Edit</a></li>
-          <li ng-click="ctrl.deleteRecipe(ctrl.currentRecipe)"
-              ng-if="ctrl.currentRecipe.userId === auth.loggedInUserId"
-          ><a href="#">Delete</a></li>
-        </ul>
+      <div class="flexAlign">
+        <div class="edit-delete">
+          <ul>
+            <li ng-click="ctrl.indexOfEditForm = !ctrl.indexOfEditForm"
+                ng-if="ctrl.currentRecipe.userId === auth.loggedInUserId"
+            ><a href="#">Edit</a></li>
+            <li ng-click="ctrl.deleteRecipe(ctrl.currentRecipe)"
+                ng-if="ctrl.currentRecipe.userId === auth.loggedInUserId"
+            ><a href="#">Delete</a></li>
+          </ul>
+        </div>
+        <div class="edit-delete">
+          <ul>
+            <li>
+              <span ng-if="!auth.loggedInUserId">Likes: </span>
+              <span>{{ctrl.currentRecipe.numOfLikes}}</span>
+              <img  class="icon"
+                    ng-if="auth.loggedInUserId"
+                    ng-click="ctrl.likeRecipe(ctrl.currentRecipe)"
+                    src="/images/thumb-up.png" alt="">
+            </li>
+            <li>
+              <span ng-if="!auth.loggedInUserId">Dislikes: </span>
+              <span>{{ctrl.currentRecipe.numOfDislikes}}</span>
+              <img  class="icon"
+                    ng-if="auth.loggedInUserId"
+                    ng-click="ctrl.dislikeRecipe(ctrl.currentRecipe)"
+                    src="/images/thumb-down.png" alt="">
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <div>
@@ -95,13 +120,6 @@
                   placeholder="http://"
                   ng-value="ctrl.currentRecipe.image"
                   ng-model="ctrl.updatedImage"
-          />
-          <label for="ingredients">Ingredients:</label>
-          <input  type="text"
-                  id="ingredients"
-                  placeholder="ingredients"
-                  ng-value="ctrl.currentRecipe.ingredients"
-                  ng-model="ctrl.updatedIngredients"
           />
           <label for="cook-time">Cook Time:</label>
           <input  type="text"
@@ -126,6 +144,16 @@
           />
         </fieldset>
         <fieldset>
+          <legend>Ingredients</legend>
+          <label for="ingredients">Ingredients:</label>
+          <textarea  type="text"
+                  id="ingredients"
+                  placeholder="ingredients"
+                  ng-value="ctrl.currentRecipe.ingredients"
+                  ng-model="ctrl.updatedIngredients"
+          > </textarea>
+        </fieldset>
+        <fieldset>
           <legend>Instructions</legend>
           <label for="instructions">Instructions:</label>
           <textarea  type="text"
@@ -133,7 +161,6 @@
                   placeholder="instructions"
                   ng-value="ctrl.currentRecipe.instructions"
                   ng-model="ctrl.updatedInstructions">
-                  {{recipe.instructions}}
           </textarea>
         </fieldset>
         <input type="submit" value="Edit Recipe">
