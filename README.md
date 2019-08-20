@@ -10,7 +10,7 @@ Collaborators: Becka Catanzaro, Yulli Chong, Carramah Quiett
 * [Illustration](#illustration)
 * [Scope of Functionalities](#scope-of-functionalities)
 * [Setup/Examples of Use](#setup/examples-of-use)
-* [Project Status](#project status)
+* [Project Status](#project-status)
 * [Sources](#sources)
 
 
@@ -26,16 +26,16 @@ Quickapies is a recipe app which allows a user to search for recipes that take l
 * GitHub
 * MongoDB
 
-##Dependencies
+## Dependencies
 * Express - version 4.17.1
 * Express-Session - version 1.16.2
-* BCrypt - version 3.0.6
+* bcrypt - version 3.0.6
 * Mongoose - version 5.6.9
 * dotenv - version 8.0.0
 
 
 ## Illustration
-![Algorithm quickapies_app](./images/readme/quickapies_app.png)
+![Example quickapies_app](./public/images/readme/quickapies_app.png)
 
 ## Scope of Functionalities
 * Create User/Login/Password.
@@ -48,27 +48,26 @@ Quickapies is a recipe app which allows a user to search for recipes that take l
 * Each recipe provides: ingredients, instructions, image, cook/prep time, tags.
 
 
-
 ## Setup/Examples of Use
 * Anyone can search for a recipe.
-![Algorithm add_search](../images/readme/anyone_search.png)
+![Example add_search](./public/images/readme/anyone_search.png)
 
 * If you don’t have an account, create a user – Click on “Create User” to enter a “username” and “password”.
-![Algorithm create_user](../images/readme/create_user.png)
+![Example create_user](./public/images/readme/create_user.png)
 
 * Log In – Click on “Log In” to enter your “username” and “password”.
-![Algorithm user_login](../images/readme/anyone_search.png)
+![Example user_login](./public/images/readme/anyone_search.png)
 
 * After logging in, Quickapies takes you to the “Welcome” screen.
-![Algorithm logged_in](../images/readme/logged_in.png)
+![Example logged_in](./public/images/readme/logged_in.png)
 
 * Logged in user can add, edit, and delete their particular a recipe.
-![Algorithm add_recipe](../images/readme/add_recipe.png)
+![Example add_recipe](./public/images/readme/add_recipe.png)
 
 * Another example of searching for a recipe
-![Algorithm login_search](../images/readme/login_search.png)
-![Algorithm display_recipe](../images/readme/display_recipe.png)
+![Example login_search](./public/images/readme/login_search.png)
+![Example display_recipe](./public/images/readme/display_recipe.png)
 
 ## Project Status
 
-##Sources
+## Sources
