@@ -72,8 +72,7 @@ None of the free APIs had instructions available to display on our app; all of t
 Goal: Find a free API with access to all information needed to make a recipe card on the app.
 
 * Ability to Like/Dislike a recipe.
-Currently, a user who logs in is able to click on "like" and "dislike" on any given recipe, and the data will be added and saved. However, there is currently no limit to the number of times a user is able to like and dislike a recipe.
-Goal: When a user clicks "like" or "dislike" one time, their vote will be counted, and they will not be able to add a second "like" or "dislike".
+Right now, when a users likes or dislikes a recipe, the all like/dislike options are removed from their scope.
 Goal: When a user who has already clicked "like" or "dislike" clicks on the "like" or "dislike" button, their vote will then be removed and they will be able to cast it again.
 
 ## Project Status
