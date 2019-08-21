@@ -436,6 +436,8 @@ input:focus, textarea:focus {
     width: 22%;
     height: 70vh;
     border-radius: 5px;
+    border-top: 1px solid var(--color-darkbrown);
+    box-shadow: 2px 2px #6B5746;
     overflow-y: auto;
   }
 
@@ -443,6 +445,8 @@ input:focus, textarea:focus {
     width: 45%;
     height: 70vh;
     border-radius: 5px;
+    border-top: 1px solid var(--color-darkbrown);
+    box-shadow: 2px 2px #6B5746;
     overflow-y: auto;
     order: 1;
   }
@@ -451,6 +455,8 @@ input:focus, textarea:focus {
     width: 30%;
     height: 70vh;
     border-radius: 5px;
+    border-top: 1px solid var(--color-darkbrown);
+    box-shadow: 2px 2px #6B5746;
     overflow-y: auto;
   }
 
@@ -492,6 +498,8 @@ input:focus, textarea:focus {
 
   .devCard {
     width: 29%;
+    border-top: 1px solid var(--color-darkbrown);
+    box-shadow: 2px 2px #6B5746;
     border-radius: 5px;
   }
 
