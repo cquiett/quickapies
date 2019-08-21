@@ -82,23 +82,20 @@
           </ul>
         </div>
         <div class="edit-delete">
-          <ul ng-repeat="user in ctrl.currentRecipe.userVote" ng-if="user === auth.loggedInUserId">
-            <li>ALREADY VOTED</li>
-          </ul>
           <ul>
             <li>
-              <span ng-if="!auth.loggedInUserId">Likes: </span>
+              <span ng-if="!auth.loggedInUserId || ctrl.alreadyVoted">Likes: </span>
               <span>{{ctrl.currentRecipe.numOfLikes}}</span>
               <img  class="icon"
-                    ng-if="auth.loggedInUserId"
+                    ng-if="auth.loggedInUserId && !ctrl.alreadyVoted"
                     ng-click="ctrl.likeRecipe(ctrl.currentRecipe, auth.loggedInUserId)"
                     src="/images/thumb-up.png" alt="">
             </li>
             <li>
-              <span ng-if="!auth.loggedInUserId">Dislikes: </span>
+              <span ng-if="!auth.loggedInUserId || ctrl.alreadyVoted">Dislikes: </span>
               <span>{{ctrl.currentRecipe.numOfDislikes}}</span>
               <img  class="icon"
-                    ng-if="auth.loggedInUserId"
+                    ng-if="auth.loggedInUserId  && !ctrl.alreadyVoted"
                     ng-click="ctrl.dislikeRecipe(ctrl.currentRecipe, auth.loggedInUserId)"
                     src="/images/thumb-down.png" alt="">
             </li>
@@ -177,7 +174,7 @@
 <div class="showAllRecipes">
   <div class="flexAlign" ng-repeat="recipe in ctrl.recipes | filter: searchBox">
     <div>
-      <h3 class="clickme" ng-click="ctrl.saveOne(recipe)">{{ recipe.name }}</h3>
+      <h3 class="clickme" ng-click="ctrl.saveOne(recipe, auth.loggedInUserId)">{{ recipe.name }}</h3>
     </div>
     <div class="my-recipe" ng-if="recipe.userId === auth.loggedInUserId">
       <img src="images/my-recipe.png" alt="">

@@ -159,10 +159,17 @@ app.controller("MainController", ["$http", function($http) {
     });
   };
 
-  this.saveOne = function (recipe) {
+  this.saveOne = function (recipe, user) {
     this.currentRecipe = recipe;
     this.currentRecipeShow = true;
     this.indexOfEditForm = false;
+    this.alreadyVoted = false;
+    for (let i=0; i < this.currentRecipe.userVote.length; i++) {
+      if (this.currentRecipe.userVote[i] === user) {
+        this.alreadyVoted = true;
+
+      }
+    }
   }
 
   this.likeRecipe = function (recipe, user) {
@@ -173,7 +180,8 @@ app.controller("MainController", ["$http", function($http) {
       this.currentRecipe.numOfLikes += 1;
     }
     this.currentRecipe.userVote.push(user);
-    this.saveOne(this.currentRecipe);
+    this.saveOne(this.currentRecipe, user);
+    this.alreadyVoted = true;
     $http({
       method: "PUT",
       url: "/recipes/" + recipe._id,
@@ -187,25 +195,14 @@ app.controller("MainController", ["$http", function($http) {
 
   this.dislikeRecipe = function (recipe, user) {
     this.currentRecipe = recipe;
-    this.votedUser = user;
-    console.log(recipe);
-    console.log(user);
-    console.log(this.currentRecipe.userVote);
-
-    // for (let i = 0; i < this.currentRecipe.userVote; i++) {
-    //   console.log(this.currentRecipe.userVote[i]);
-    //   if (this.currentRecipe.userVote[i] !== user) {
-    //     console.log('CAN VOTE');
-    //   }
-    // }
-    // if (this.alreadyVoted === false) {
-      if (this.currentRecipe.numOfDislikes === undefined) {
+    if (this.currentRecipe.numOfDislikes === undefined) {
         this.currentRecipe.numOfDislikes = -1;
       } else {
         this.currentRecipe.numOfDislikes -= 1;
       }
       this.currentRecipe.userVote.push(user);
-      this.saveOne(this.currentRecipe);
+      this.saveOne(this.currentRecipe, user);
+      this.alreadyVoted = true;
       $http({
         method: "PUT",
         url: "/recipes/" + recipe._id,
@@ -215,7 +212,6 @@ app.controller("MainController", ["$http", function($http) {
       }, function(error) {
         console.log(error);
       });
-    //}
 
   };
 
